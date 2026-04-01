@@ -17,17 +17,59 @@
         "@tanstack/react-table"
       ],
       "registryDependencies": [
-        "button",
-        "card",
         "dialog",
-        "sheet",
-        "drawer",
-        "sidebar",
-        "tooltip",
-        "input",
-        "table"
+        "badge",
+        "select",
+        "tabs",
+        "toggle-group",
+        "label",
+        "separator",
+        "avatar",
+        "skeleton",
+        "chart",
+        "dropdown-menu"
       ],
       "files": [
+        {
+          "path": "components/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "components/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        },
+        {
+          "path": "components/ui/card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card.tsx"
+        },
+        {
+          "path": "components/ui/drawer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/drawer.tsx"
+        },
+        {
+          "path": "components/ui/sheet.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sheet.tsx"
+        },
+        {
+          "path": "components/ui/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tooltip.tsx"
+        },
+        {
+          "path": "components/ui/table.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/table.tsx"
+        },
+        {
+          "path": "components/ui/sidebar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sidebar.tsx"
+        },
         {
           "path": "components/layout/dashboard-layout.tsx",
           "type": "registry:ui",
@@ -132,6 +174,11 @@
           "path": "app/dashboard/lifecycle/page.tsx",
           "type": "registry:page",
           "target": "app/dashboard/lifecycle/page.tsx"
+        },
+        {
+          "path": "public/avatars/murgo_02.jpg",
+          "type": "registry:file",
+          "target": "public/avatars/murgo_02.jpg"
         }
       ]
     },
