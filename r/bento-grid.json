@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bento-grid",
+  "files": [
+    {
+      "path": "components/bento/bento-grid.tsx",
+      "content": "import type { ReactNode } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\ninterface BentoGridProps {\n  children: ReactNode;\n  className?: string;\n}\n\ninterface BentoCardProps {\n  colSpan?: 1 | 2 | 3 | 4;\n  rowSpan?: 1 | 2 | 3;\n  children: ReactNode;\n  className?: string;\n}\n\nexport function BentoGrid({ children, className }: BentoGridProps) {\n  return (\n    <div\n      className={cn(\n        \"grid auto-rows-[180px] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4\",\n        className,\n      )}\n    >\n      {children}\n    </div>\n  );\n}\n\nexport function BentoCard({\n  colSpan = 1,\n  rowSpan = 1,\n  children,\n  className,\n}: BentoCardProps) {\n  return (\n    <div\n      className={cn(\n        \"overflow-hidden rounded-(--radius) border border-border bg-card p-4 shadow-none\",\n        className,\n      )}\n      style={{\n        gridColumn: `span ${colSpan} / span ${colSpan}`,\n        gridRow: `span ${rowSpan} / span ${rowSpan}`,\n      }}\n    >\n      {children}\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/bento/bento-grid.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

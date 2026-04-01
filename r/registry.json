@@ -1,0 +1,162 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "murgodash",
+  "homepage": "https://github.com/joyboy-dy/murgodash",
+  "items": [
+    {
+      "name": "dashboard",
+      "type": "registry:block",
+      "title": "Murgodash Dashboard",
+      "description": "Full-featured Bento Dashboard Template.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "next-themes",
+        "sonner",
+        "recharts",
+        "@tanstack/react-table"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "dialog",
+        "sheet",
+        "drawer",
+        "sidebar",
+        "tooltip",
+        "input",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "components/layout/dashboard-layout.tsx",
+          "type": "registry:ui",
+          "target": "components/layout/dashboard-layout.tsx"
+        },
+        {
+          "path": "components/layout/app-sidebar.tsx",
+          "type": "registry:ui",
+          "target": "components/layout/app-sidebar.tsx"
+        },
+        {
+          "path": "components/layout/bottom-nav.tsx",
+          "type": "registry:ui",
+          "target": "components/layout/bottom-nav.tsx"
+        },
+        {
+          "path": "components/layout/bottom-drawer.tsx",
+          "type": "registry:ui",
+          "target": "components/layout/bottom-drawer.tsx"
+        },
+        {
+          "path": "components/layout/theme-toggle.tsx",
+          "type": "registry:ui",
+          "target": "components/layout/theme-toggle.tsx"
+        },
+        {
+          "path": "components/layout/nav-main.tsx",
+          "type": "registry:ui",
+          "target": "components/layout/nav-main.tsx"
+        },
+        {
+          "path": "components/layout/nav-documents.tsx",
+          "type": "registry:ui",
+          "target": "components/layout/nav-documents.tsx"
+        },
+        {
+          "path": "components/layout/nav-secondary.tsx",
+          "type": "registry:ui",
+          "target": "components/layout/nav-secondary.tsx"
+        },
+        {
+          "path": "components/layout/nav-user.tsx",
+          "type": "registry:ui",
+          "target": "components/layout/nav-user.tsx"
+        },
+        {
+          "path": "components/dashboard/site-header.tsx",
+          "type": "registry:ui",
+          "target": "components/dashboard/site-header.tsx"
+        },
+        {
+          "path": "components/dashboard/dashboard-nav-config.ts",
+          "type": "registry:ui",
+          "target": "components/dashboard/dashboard-nav-config.ts"
+        },
+        {
+          "path": "components/dashboard/section-cards.tsx",
+          "type": "registry:ui",
+          "target": "components/dashboard/section-cards.tsx"
+        },
+        {
+          "path": "components/dashboard/chart-area-interactive.tsx",
+          "type": "registry:ui",
+          "target": "components/dashboard/chart-area-interactive.tsx"
+        },
+        {
+          "path": "components/dashboard/data-table.tsx",
+          "type": "registry:ui",
+          "target": "components/dashboard/data-table.tsx"
+        },
+        {
+          "path": "components/dashboard/header-notifications.tsx",
+          "type": "registry:ui",
+          "target": "components/dashboard/header-notifications.tsx"
+        },
+        {
+          "path": "components/bento/bento-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/bento/bento-grid.tsx"
+        },
+        {
+          "path": "components/ui/search-filter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/search-filter.tsx"
+        },
+        {
+          "path": "app/dashboard/page.tsx",
+          "type": "registry:page",
+          "target": "app/dashboard/page.tsx"
+        },
+        {
+          "path": "app/dashboard/layout.tsx",
+          "type": "registry:page",
+          "target": "app/dashboard/layout.tsx"
+        },
+        {
+          "path": "app/dashboard/data.json",
+          "type": "registry:file",
+          "target": "app/dashboard/data.json"
+        },
+        {
+          "path": "app/dashboard/lifecycle/page.tsx",
+          "type": "registry:page",
+          "target": "app/dashboard/lifecycle/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/bento/bento-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/bento/bento-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "search-filter",
+      "type": "registry:ui",
+      "registryDependencies": ["input", "sheet", "button", "badge", "label"],
+      "files": [
+        {
+          "path": "components/ui/search-filter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/search-filter.tsx"
+        }
+      ]
+    }
+  ]
+}
