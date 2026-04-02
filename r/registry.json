@@ -203,6 +203,90 @@
       ]
     },
     {
+      "name": "settings",
+      "type": "registry:block",
+      "title": "Murgodash Settings",
+      "description": "Modular settings page template for Murgodash.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "next-themes"
+      ],
+      "registryDependencies": [
+        "sidebar",
+        "drawer",
+        "avatar",
+        "card",
+        "button",
+        "input",
+        "label",
+        "separator",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "components/settings/settings-layout.tsx",
+          "type": "registry:ui",
+          "target": "components/settings/settings-layout.tsx"
+        },
+        {
+          "path": "components/settings/settings-sidebar.tsx",
+          "type": "registry:ui",
+          "target": "components/settings/settings-sidebar.tsx"
+        },
+        {
+          "path": "components/settings/settings-header.tsx",
+          "type": "registry:ui",
+          "target": "components/settings/settings-header.tsx"
+        },
+        {
+          "path": "components/settings/settings-bottom-nav.tsx",
+          "type": "registry:ui",
+          "target": "components/settings/settings-bottom-nav.tsx"
+        },
+        {
+          "path": "components/settings/settings-bottom-drawer.tsx",
+          "type": "registry:ui",
+          "target": "components/settings/settings-bottom-drawer.tsx"
+        },
+        {
+          "path": "components/settings/settings-nav-config.ts",
+          "type": "registry:ui",
+          "target": "components/settings/settings-nav-config.ts"
+        },
+        {
+          "path": "app/settings/layout.tsx",
+          "type": "registry:page",
+          "target": "app/settings/layout.tsx"
+        },
+        {
+          "path": "app/settings/page.tsx",
+          "type": "registry:page",
+          "target": "app/settings/page.tsx"
+        },
+        {
+          "path": "app/settings/profile/page.tsx",
+          "type": "registry:page",
+          "target": "app/settings/profile/page.tsx"
+        },
+        {
+          "path": "components/ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "full",
+      "type": "registry:block",
+      "title": "Murgodash Full",
+      "description": "Full Murgodash template including Dashboard and Settings.",
+      "registryDependencies": [
+        "murgodash:dashboard",
+        "murgodash:settings"
+      ]
+    },
+    {
       "name": "bento-grid",
       "type": "registry:ui",
       "files": [

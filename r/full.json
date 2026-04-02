@@ -1,0 +1,11 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "full",
+  "title": "Murgodash Full",
+  "description": "Full Murgodash template including Dashboard and Settings.",
+  "registryDependencies": [
+    "murgodash:dashboard",
+    "murgodash:settings"
+  ],
+  "type": "registry:block"
+}
