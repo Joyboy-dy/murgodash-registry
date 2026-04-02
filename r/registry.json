@@ -176,9 +176,29 @@
           "target": "app/dashboard/lifecycle/page.tsx"
         },
         {
-          "path": "public/avatars/murgo_02.jpg",
-          "type": "registry:file",
-          "target": "public/avatars/murgo_02.jpg"
+          "path": "components/dashboard/search-dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/dashboard/search-dialog.tsx"
+        },
+        {
+          "path": "components/dashboard/quick-create-dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/dashboard/quick-create-dialog.tsx"
+        },
+        {
+          "path": "components/ui/kbd.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/kbd.tsx"
+        },
+        {
+          "path": "hooks/use-command-palette.tsx",
+          "type": "registry:hook",
+          "target": "hooks/use-command-palette.tsx"
+        },
+        {
+          "path": "hooks/use-mobile.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-mobile.ts"
         }
       ]
     },
