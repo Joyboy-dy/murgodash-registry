@@ -210,7 +210,8 @@
       "dependencies": [
         "@hugeicons/react",
         "@hugeicons/core-free-icons",
-        "next-themes"
+        "next-themes",
+        "react-phone-number-input"
       ],
       "registryDependencies": [
         "sidebar",
@@ -221,7 +222,8 @@
         "input",
         "label",
         "separator",
-        "tooltip"
+        "tooltip",
+        "select"
       ],
       "files": [
         {
@@ -270,9 +272,39 @@
           "target": "app/settings/profile/page.tsx"
         },
         {
+          "path": "app/settings/account/page.tsx",
+          "type": "registry:page",
+          "target": "app/settings/account/page.tsx"
+        },
+        {
+          "path": "app/settings/global/page.tsx",
+          "type": "registry:page",
+          "target": "app/settings/global/page.tsx"
+        },
+        {
           "path": "components/ui/textarea.tsx",
           "type": "registry:ui",
           "target": "components/ui/textarea.tsx"
+        },
+        {
+          "path": "components/ui/password-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/password-input.tsx"
+        },
+        {
+          "path": "components/ui/phone-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/phone-input.tsx"
+        },
+        {
+          "path": "components/ui/profile-image-upload.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/profile-image-upload.tsx"
+        },
+        {
+          "path": "components/ui/select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select.tsx"
         }
       ]
     },
