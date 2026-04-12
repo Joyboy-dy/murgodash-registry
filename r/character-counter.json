@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "character-counter",
+  "type": "registry:ui",
+  "title": "Character Counter",
+  "description": "Text input accessory to count remaining characters.",
+  "files": [
+    {
+      "path": "components/ui/character-counter.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\ninterface CharacterCounterProps extends React.HTMLAttributes<HTMLSpanElement> {\n  current: number\n  limit?: number\n}\n\nconst CharacterCounter = React.forwardRef<HTMLSpanElement, CharacterCounterProps>(\n  ({ className, current, limit, ...props }, ref) => {\n    const isOverLimit = limit ? current > limit : false\n\n    return (\n      <span\n        ref={ref}\n        className={cn(\n          \"text-[10px] font-medium tabular-nums transition-colors\",\n          isOverLimit ? \"text-destructive\" : \"text-muted-foreground\",\n          className\n        )}\n        {...props}\n      >\n        {current}{limit ? ` / ${limit}` : \"\"}\n      </span>\n    )\n  }\n)\nCharacterCounter.displayName = \"CharacterCounter\"\n\nexport { CharacterCounter }\n",
+      "type": "registry:ui",
+      "target": "components/ui/character-counter.tsx"
+    }
+  ]
+}

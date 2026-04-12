@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "type": "registry:ui",
+  "title": "KBD",
+  "description": "Keyboard key visual representative.",
+  "files": [
+    {
+      "path": "components/ui/kbd.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface KbdProps extends React.HTMLAttributes<HTMLElement> {}\n\nconst Kbd = React.forwardRef<HTMLElement, KbdProps>(\n  ({ className, ...props }, ref) => {\n    return (\n      <kbd\n        ref={ref}\n        className={cn(\n          \"pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100\",\n          className\n        )}\n        {...props}\n      />\n    )\n  }\n)\nKbd.displayName = \"Kbd\"\n\nexport { Kbd }\n",
+      "type": "registry:ui",
+      "target": "components/ui/kbd.tsx"
+    }
+  ]
+}

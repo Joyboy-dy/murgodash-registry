@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "svgl-icon",
+  "type": "registry:ui",
+  "title": "Svgl Icon",
+  "description": "Dynamic SVG icon component that fetches icons from the SVGL API.",
+  "dependencies": ["swr"],
+  "files": [
+    {
+      "path": "components/ui/svgl-icon.tsx",
+      "content": "\"use client\";\n\nimport useSWR from \"use-swr\";\nimport { cn } from \"@/lib/utils\";\n\n/**\n * Fetcher pour récupérer le contenu brut d'un SVG depuis l'API SVGL.\n */\nconst fetcher = (url: string) =>\n  fetch(url).then((res) => {\n    if (!res.ok) throw new Error(\"Failed to fetch SVG\");\n    return res.text();\n  });\n\ninterface SvglIconProps {\n  /** Nom du fichier sur SVGL (ex: \"google.svg\") */\n  filename: string;\n  /** Taille de l'icône en pixels (défaut: 32) */\n  size?: number;\n  /** Classes CSS additionnelles */\n  className?: string;\n}\n\n/**\n * Composant SvglIcon\n * Charge dynamiquement un SVG depuis l'API SVGL et l'injecte en inline.\n */\nexport const SvglIcon = ({ filename, size, className }: SvglIconProps) => {\n  const {\n    data: svgContent,\n    error,\n    isLoading,\n  } = useSWR(`https://api.svgl.app/svg/${filename}`, fetcher, {\n    revalidateOnFocus: false,\n    revalidateOnReconnect: false,\n    dedupingInterval: 3600000, // 1 heure de cache local\n  });\n\n  // Gestion des états de chargement et d'erreur silencieuse\n  if (isLoading || error || !svgContent) {\n    return (\n      <span\n        className={cn(\n          \"inline-flex shrink-0 bg-muted/20 animate-pulse rounded-sm\",\n          !size && \"size-8\",\n          className,\n        )}\n        style={size ? { width: size, height: size } : undefined}\n      />\n    );\n  }\n\n  return (\n    <span\n      className={cn(\n        \"inline-flex shrink-0 items-center justify-center\",\n        !size && \"size-8\",\n        className,\n      )}\n      style={{\n        ...(size ? { width: size, height: size } : {}),\n        display: \"inline-flex\",\n      }}\n      dangerouslySetInnerHTML={{ __html: svgContent }}\n    />\n  );\n};\n\n/**\n * Exemple d'usage concret : Logo Google\n */\nexport const GoogleLogo = (props: Omit<SvglIconProps, \"filename\">) => (\n  <SvglIcon filename=\"google.svg\" {...props} />\n);\n\nexport default SvglIcon;\n",
+      "type": "registry:ui",
+      "target": "components/ui/svgl-icon.tsx"
+    }
+  ]
+}
