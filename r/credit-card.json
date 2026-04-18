@@ -4,8 +4,16 @@
   "type": "registry:ui",
   "title": "Credit Card",
   "description": "Credit card payment form with interactive live preview.",
-  "dependencies": ["framer-motion", "lucide-react"],
-  "registryDependencies": ["input", "label", "button", "card"],
+  "dependencies": [
+    "framer-motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "input",
+    "label",
+    "button",
+    "card"
+  ],
   "files": [
     {
       "path": "components/ui/credit-card-form.tsx",

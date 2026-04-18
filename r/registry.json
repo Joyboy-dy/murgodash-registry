@@ -4,8 +4,114 @@
   "homepage": "https://github.com/joyboy-dy/murgodash",
   "items": [
     {
-      "name": "dashboard",
+      "name": "addon-input",
+      "type": "registry:ui",
+      "title": "Addon Input",
+      "description": "Input component with prefix or suffix icons/text.",
+      "files": [
+        {
+          "path": "components/ui/addon-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/addon-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "authentication",
       "type": "registry:block",
+      "title": "Murgodash Authentication",
+      "description": "Full-featured Authentication module with login, signup, forgot password, and OTP verification.",
+      "dependencies": [
+        "zod",
+        "react-hook-form",
+        "@hookform/resolvers",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "card",
+        "label",
+        "input-otp",
+        "svgl-icon"
+      ],
+      "files": [
+        {
+          "path": "components/authentication/login-form.tsx",
+          "type": "registry:ui",
+          "target": "components/authentication/login-form.tsx"
+        },
+        {
+          "path": "components/authentication/signup-form.tsx",
+          "type": "registry:ui",
+          "target": "components/authentication/signup-form.tsx"
+        },
+        {
+          "path": "app/auth/login/page.tsx",
+          "type": "registry:page",
+          "target": "app/auth/login/page.tsx"
+        },
+        {
+          "path": "app/auth/signup/page.tsx",
+          "type": "registry:page",
+          "target": "app/auth/signup/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid",
+      "files": [
+        {
+          "path": "components/bento/bento-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/bento/bento-grid.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "character-counter",
+      "type": "registry:ui",
+      "title": "Character Counter",
+      "description": "Text input accessory to count remaining characters.",
+      "files": [
+        {
+          "path": "components/ui/character-counter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/character-counter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "credit-card",
+      "type": "registry:ui",
+      "title": "Credit Card",
+      "description": "Credit card payment form with interactive live preview.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "input",
+        "label",
+        "button",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "components/ui/credit-card-form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/credit-card-form.tsx"
+        },
+        {
+          "path": "components/ui/credit-card-preview.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/credit-card-preview.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard",
       "title": "Murgodash Dashboard",
       "description": "Full-featured Bento Dashboard Template.",
       "dependencies": [
@@ -200,11 +306,120 @@
           "type": "registry:hook",
           "target": "hooks/use-mobile.ts"
         }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "full",
+      "title": "Murgodash Full",
+      "description": "Full Murgodash template including Dashboard and Settings.",
+      "registryDependencies": [
+        "murgodash:dashboard",
+        "murgodash:settings"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input OTP",
+      "description": "Secure one-time password input component.",
+      "dependencies": [
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "components/ui/input-otp.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-otp.tsx"
+        }
       ]
     },
     {
-      "name": "settings",
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "KBD",
+      "description": "Keyboard key visual representative.",
+      "files": [
+        {
+          "path": "components/ui/kbd.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/kbd.tsx"
+        }
+      ]
+    },
+    {
+      "name": "onboarding",
       "type": "registry:block",
+      "title": "Murgodash Onboarding",
+      "description": "Interactive multi-step onboarding wizard for new users.",
+      "dependencies": [
+        "framer-motion",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "label",
+        "input",
+        "select",
+        "avatar",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "components/onboarding/onboarding-stepper.tsx",
+          "type": "registry:ui",
+          "target": "components/onboarding/onboarding-stepper.tsx"
+        },
+        {
+          "path": "components/onboarding/onboarding-wizard.tsx",
+          "type": "registry:ui",
+          "target": "components/onboarding/onboarding-wizard.tsx"
+        },
+        {
+          "path": "app/onboarding/page.tsx",
+          "type": "registry:page",
+          "target": "app/onboarding/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "phone-input",
+      "type": "registry:ui",
+      "title": "Phone Input",
+      "description": "International phone number input with country selection.",
+      "dependencies": [
+        "react-phone-number-input"
+      ],
+      "files": [
+        {
+          "path": "components/ui/phone-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/phone-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "search-filter",
+      "registryDependencies": [
+        "input",
+        "sheet",
+        "button",
+        "badge",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "components/ui/search-filter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/search-filter.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "settings",
       "title": "Murgodash Settings",
       "description": "Modular settings page template for Murgodash.",
       "dependencies": [
@@ -306,159 +521,23 @@
           "type": "registry:ui",
           "target": "components/ui/select.tsx"
         }
-      ]
-    },
-    {
-      "name": "full",
-      "type": "registry:block",
-      "title": "Murgodash Full",
-      "description": "Full Murgodash template including Dashboard and Settings.",
-      "registryDependencies": [
-        "murgodash:dashboard",
-        "murgodash:settings"
-      ]
-    },
-    {
-      "name": "bento-grid",
-      "type": "registry:ui",
-      "files": [
-        {
-          "path": "components/bento/bento-grid.tsx",
-          "type": "registry:ui",
-          "target": "components/bento/bento-grid.tsx"
-        }
-      ]
-    },
-    {
-      "name": "search-filter",
-      "type": "registry:ui",
-      "registryDependencies": ["input", "sheet", "button", "badge", "label"],
-      "files": [
-        {
-          "path": "components/ui/search-filter.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/search-filter.tsx"
-        }
-      ]
-    },
-    {
-      "name": "authentication",
-      "type": "registry:block",
-      "title": "Murgodash Authentication",
-      "description": "Full-featured Authentication module with login, signup, forgot password, and OTP verification.",
-      "dependencies": ["zod", "react-hook-form", "@hookform/resolvers", "sonner"],
-      "registryDependencies": ["button", "input", "card", "label", "input-otp", "svgl-icon"],
-      "files": [
-        { "path": "components/authentication/login-form.tsx", "type": "registry:ui", "target": "components/authentication/login-form.tsx" },
-        { "path": "components/authentication/login.tsx", "type": "registry:ui", "target": "components/authentication/login.tsx" },
-        { "path": "components/authentication/signup-form.tsx", "type": "registry:ui", "target": "components/authentication/signup-form.tsx" },
-        { "path": "components/authentication/signup.tsx", "type": "registry:ui", "target": "components/authentication/signup.tsx" },
-        { "path": "components/authentication/forgot-password-form.tsx", "type": "registry:ui", "target": "components/authentication/forgot-password-form.tsx" },
-        { "path": "components/authentication/forgot-password.tsx", "type": "registry:ui", "target": "components/authentication/forgot-password.tsx" },
-        { "path": "components/authentication/reset-password-form.tsx", "type": "registry:ui", "target": "components/authentication/reset-password-form.tsx" },
-        { "path": "components/authentication/reset-password.tsx", "type": "registry:ui", "target": "components/authentication/reset-password.tsx" },
-        { "path": "components/authentication/verify-otp-form.tsx", "type": "registry:ui", "target": "components/authentication/verify-otp-form.tsx" },
-        { "path": "components/authentication/verify-otp.tsx", "type": "registry:ui", "target": "components/authentication/verify-otp.tsx" },
-        { "path": "components/authentication/icons.tsx", "type": "registry:ui", "target": "components/authentication/icons.tsx" },
-        { "path": "app/auth/login/page.tsx", "type": "registry:page", "target": "app/auth/login/page.tsx" },
-        { "path": "app/auth/signup/page.tsx", "type": "registry:page", "target": "app/auth/signup/page.tsx" },
-        { "path": "app/auth/forgot-password/page.tsx", "type": "registry:page", "target": "app/auth/forgot-password/page.tsx" },
-        { "path": "app/auth/reset-password/page.tsx", "type": "registry:page", "target": "app/auth/reset-password/page.tsx" },
-        { "path": "app/auth/verify-otp/page.tsx", "type": "registry:page", "target": "app/auth/verify-otp/page.tsx" }
-      ]
-    },
-    {
-      "name": "onboarding",
-      "type": "registry:block",
-      "title": "Murgodash Onboarding",
-      "description": "Interactive multi-step onboarding wizard for new users.",
-      "dependencies": ["framer-motion", "sonner"],
-      "registryDependencies": ["button", "card", "label", "input", "select", "avatar", "tabs"],
-      "files": [
-        { "path": "components/onboarding/onboarding-stepper.tsx", "type": "registry:ui", "target": "components/onboarding/onboarding-stepper.tsx" },
-        { "path": "components/onboarding/onboarding-wizard.tsx", "type": "registry:ui", "target": "components/onboarding/onboarding-wizard.tsx" },
-        { "path": "components/onboarding/steps/preferences-step.tsx", "type": "registry:ui", "target": "components/onboarding/steps/preferences-step.tsx" },
-        { "path": "components/onboarding/steps/profile-step.tsx", "type": "registry:ui", "target": "components/onboarding/steps/profile-step.tsx" },
-        { "path": "components/onboarding/steps/workspace-step.tsx", "type": "registry:ui", "target": "components/onboarding/steps/workspace-step.tsx" },
-        { "path": "app/onboarding/page.tsx", "type": "registry:page", "target": "app/onboarding/page.tsx" }
-      ]
-    },
-    {
-      "name": "credit-card",
-      "type": "registry:ui",
-      "title": "Credit Card Form",
-      "description": "Credit card payment form with interactive live preview.",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["input", "label", "button", "card"],
-      "files": [
-        { "path": "components/ui/credit-card-form.tsx", "type": "registry:ui", "target": "components/ui/credit-card-form.tsx" },
-        { "path": "components/ui/credit-card-preview.tsx", "type": "registry:ui", "target": "components/ui/credit-card-preview.tsx" }
-      ]
+      ],
+      "type": "registry:block"
     },
     {
       "name": "svgl-icon",
       "type": "registry:ui",
       "title": "Svgl Icon",
       "description": "Dynamic SVG icon component that fetches icons from the SVGL API.",
-      "dependencies": ["swr"],
+      "dependencies": [
+        "swr"
+      ],
       "files": [
-        { "path": "components/ui/svgl-icon.tsx", "type": "registry:ui", "target": "components/ui/svgl-icon.tsx" }
-      ]
-    },
-    {
-      "name": "input-otp",
-      "type": "registry:ui",
-      "title": "Input OTP",
-      "description": "Secure one-time password input component.",
-      "dependencies": ["input-otp"],
-      "files": [
-        { "path": "components/ui/input-otp.tsx", "type": "registry:ui", "target": "components/ui/input-otp.tsx" }
-      ]
-    },
-    {
-      "name": "phone-input",
-      "type": "registry:ui",
-      "title": "Phone Input",
-      "description": "International phone number input with country selection.",
-      "dependencies": ["react-phone-number-input"],
-      "files": [
-        { "path": "components/ui/phone-input.tsx", "type": "registry:ui", "target": "components/ui/phone-input.tsx" }
-      ]
-    },
-    {
-      "name": "password-input",
-      "type": "registry:ui",
-      "title": "Password Input",
-      "description": "Password input with visibility toggle.",
-      "files": [
-        { "path": "components/ui/password-input.tsx", "type": "registry:ui", "target": "components/ui/password-input.tsx" }
-      ]
-    },
-    {
-      "name": "character-counter",
-      "type": "registry:ui",
-      "title": "Character Counter",
-      "description": "Text input accessory to count remaining characters.",
-      "files": [
-        { "path": "components/ui/character-counter.tsx", "type": "registry:ui", "target": "components/ui/character-counter.tsx" }
-      ]
-    },
-    {
-      "name": "addon-input",
-      "type": "registry:ui",
-      "title": "Addon Input",
-      "description": "Input component with prefix or suffix icons/text.",
-      "files": [
-        { "path": "components/ui/addon-input.tsx", "type": "registry:ui", "target": "components/ui/addon-input.tsx" }
-      ]
-    },
-    {
-      "name": "kbd",
-      "type": "registry:ui",
-      "title": "KBD",
-      "description": "Keyboard key visual representative.",
-      "files": [
-        { "path": "components/ui/kbd.tsx", "type": "registry:ui", "target": "components/ui/kbd.tsx" }
+        {
+          "path": "components/ui/svgl-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/svgl-icon.tsx"
+        }
       ]
     }
   ]

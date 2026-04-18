@@ -4,8 +4,19 @@
   "type": "registry:block",
   "title": "Murgodash Onboarding",
   "description": "Interactive multi-step onboarding wizard for new users.",
-  "dependencies": ["framer-motion", "sonner"],
-  "registryDependencies": ["button", "card", "label", "input", "select", "avatar", "tabs"],
+  "dependencies": [
+    "framer-motion",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "label",
+    "input",
+    "select",
+    "avatar",
+    "tabs"
+  ],
   "files": [
     {
       "path": "components/onboarding/onboarding-stepper.tsx",
@@ -21,7 +32,7 @@
     },
     {
       "path": "app/onboarding/page.tsx",
-      "content": "\"use client\";\n\nimport { OnboardingWizard } from \"@/components/onboarding/onboarding-wizard\";\n\nexport default function OnboardingPage() {\n  return (\n    <main className=\"bg-muted/30\">\n      <OnboardingWizard />\n    </main>\n  );\n}\n",
+      "content": "import { OnboardingWizard } from \"@/components/onboarding/onboarding-wizard\";\n\nexport const metadata = {\n  title: \"Onboarding | Murgo\",\n};\n\nexport default function OnboardingPage() {\n  return <OnboardingWizard />;\n}\n",
       "type": "registry:page",
       "target": "app/onboarding/page.tsx"
     }

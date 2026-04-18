@@ -4,7 +4,9 @@
   "type": "registry:ui",
   "title": "Input OTP",
   "description": "Secure one-time password input component.",
-  "dependencies": ["input-otp"],
+  "dependencies": [
+    "input-otp"
+  ],
   "files": [
     {
       "path": "components/ui/input-otp.tsx",
