@@ -32,19 +32,47 @@
         "input",
         "card",
         "label",
-        "input-otp",
-        "svgl-icon"
+        "checkbox",
+        "form",
+        "separator",
+        "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/input-otp.json",
+        "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/svgl-icon.json"
       ],
       "files": [
+        {
+          "path": "components/authentication/login.tsx",
+          "type": "registry:ui",
+          "target": "components/authentication/login.tsx"
+        },
         {
           "path": "components/authentication/login-form.tsx",
           "type": "registry:ui",
           "target": "components/authentication/login-form.tsx"
         },
         {
+          "path": "components/authentication/signup.tsx",
+          "type": "registry:ui",
+          "target": "components/authentication/signup.tsx"
+        },
+        {
           "path": "components/authentication/signup-form.tsx",
           "type": "registry:ui",
           "target": "components/authentication/signup-form.tsx"
+        },
+        {
+          "path": "components/authentication/icons.tsx",
+          "type": "registry:ui",
+          "target": "components/authentication/icons.tsx"
+        },
+        {
+          "path": "components/ui/email-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/email-input.tsx"
+        },
+        {
+          "path": "components/ui/password-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/password-input.tsx"
         },
         {
           "path": "app/auth/login/page.tsx",
@@ -314,8 +342,8 @@
       "title": "Murgodash Full",
       "description": "Full Murgodash template including Dashboard and Settings.",
       "registryDependencies": [
-        "murgodash:dashboard",
-        "murgodash:settings"
+        "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/dashboard.json",
+        "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/settings.json"
       ],
       "type": "registry:block"
     },
@@ -492,9 +520,14 @@
           "target": "app/settings/account/page.tsx"
         },
         {
-          "path": "app/settings/global/page.tsx",
+          "path": "app/settings/billing/page.tsx",
           "type": "registry:page",
-          "target": "app/settings/global/page.tsx"
+          "target": "app/settings/billing/page.tsx"
+        },
+        {
+          "path": "app/settings/security/page.tsx",
+          "type": "registry:page",
+          "target": "app/settings/security/page.tsx"
         },
         {
           "path": "components/ui/textarea.tsx",

@@ -4,8 +4,8 @@
   "title": "Murgodash Full",
   "description": "Full Murgodash template including Dashboard and Settings.",
   "registryDependencies": [
-    "murgodash:dashboard",
-    "murgodash:settings"
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/dashboard.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/settings.json"
   ],
   "type": "registry:block"
 }
