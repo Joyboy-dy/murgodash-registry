@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "authentication-signup",
+  "type": "registry:ui",
+  "title": "Authentication Signup",
+  "description": "Generated from playground/components/authentication/signup.tsx.",
+  "files": [
+    {
+      "path": "components/authentication/signup.tsx",
+      "type": "registry:ui",
+      "target": "components/authentication/signup.tsx",
+      "content": "import { Camera01Icon } from \"@hugeicons/core-free-icons\";\nimport { HugeiconsIcon } from \"@hugeicons/react\";\nimport Link from \"next/link\";\nimport { Button } from \"@/components/ui/button\";\nimport { Separator } from \"@/components/ui/separator\";\nimport { GoogleLogo } from \"@/components/authentication/icons\";\nimport { SignUpForm } from \"@/components/authentication/signup-form\";\n\nconst SignUp = () => (\n  <div className=\"flex h-screen items-center justify-center py-12\">\n    <div className=\"mx-auto w-full border border-border/70 pb-0 max-sm:border-t-0 sm:max-w-md sm:rounded-xl sm:bg-card sm:p-1 sm:shadow-lg/3\">\n      <div className=\"border border-border/70 bg-muted/60 px-10 py-14 max-sm:border-x-0 sm:rounded-lg sm:shadow-sm/2\">\n        <HugeiconsIcon\n          icon={Camera01Icon}\n          className=\"mx-auto size-8\"\n          strokeWidth={1.5}\n        />\n        <h1 className=\"mt-3 text-center font-semibold text-2xl\">\n          Sign up to Murgo\n        </h1>\n\n        <div className=\"mt-10\">\n          <Button className=\"w-full\" size=\"lg\" type=\"button\">\n            <GoogleLogo className=\"mr-2 size-4\" />\n            Continue with Google\n          </Button>\n\n          <div className=\"my-6 flex items-center justify-center gap-2 overflow-hidden\">\n            <Separator />\n            <span className=\"text-muted-foreground text-sm\">OR</span>\n            <Separator />\n          </div>\n\n          <SignUpForm />\n        </div>\n      </div>\n\n      <div className=\"relative py-5\">\n        <div\n          className=\"absolute inset-0 z-0\"\n          style={{\n            backgroundImage: `\n        linear-gradient(45deg, transparent 49%, var(--border) 49%, var(--border) 51%, transparent 51%),\n        linear-gradient(-45deg, transparent 49%, var(--border) 49%, var(--border) 51%, transparent 51%)\n      `,\n            backgroundSize: \"40px 40px\",\n            WebkitMaskImage:\n              \"radial-gradient(ellipse 60% 60% at 50% 50%, #000 10%, transparent 90%)\",\n            maskImage:\n              \"radial-gradient(ellipse 60% 60% at 50% 50%, #000 10%, transparent 90%)\",\n          }}\n        />\n\n        <p className=\"relative isolate text-center text-muted-foreground text-sm\">\n          Already have an account?{\" \"}\n          <Link className=\"text-foreground font-medium\" href=\"/auth/login\">\n            Login\n          </Link>\n        </p>\n      </div>\n    </div>\n  </div>\n);\n\nexport default SignUp;\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/authentication-icons.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/authentication-signup-form.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/button.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/separator.json"
+  ]
+}

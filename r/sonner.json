@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sonner",
+  "type": "registry:ui",
+  "title": "Sonner",
+  "description": "Generated from playground/components/ui/sonner.tsx.",
+  "files": [
+    {
+      "path": "components/ui/sonner.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/sonner.tsx",
+      "content": "\"use client\"\n\nimport { useTheme } from \"next-themes\"\nimport { Toaster as Sonner, type ToasterProps } from \"sonner\"\nimport { \n  CheckmarkCircle01Icon, \n  InformationCircleIcon, \n  AlertCircleIcon, \n  CancelCircleIcon, \n  Loading03Icon \n} from \"@hugeicons/core-free-icons\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\n\nconst Toaster = ({ ...props }: ToasterProps) => {\n  const { theme = \"system\" } = useTheme()\n\n  return (\n    <Sonner\n      theme={theme as ToasterProps[\"theme\"]}\n      className=\"toaster group\"\n      icons={{\n        success: (\n          <HugeiconsIcon icon={CheckmarkCircle01Icon} className=\"size-4\" strokeWidth={1.5} />\n        ),\n        info: (\n          <HugeiconsIcon icon={InformationCircleIcon} className=\"size-4\" strokeWidth={1.5} />\n        ),\n        warning: (\n          <HugeiconsIcon icon={AlertCircleIcon} className=\"size-4\" strokeWidth={1.5} />\n        ),\n        error: (\n          <HugeiconsIcon icon={CancelCircleIcon} className=\"size-4\" strokeWidth={1.5} />\n        ),\n        loading: (\n          <HugeiconsIcon icon={Loading03Icon} className=\"size-4 animate-spin\" strokeWidth={1.5} />\n        ),\n      }}\n      style={\n        {\n          \"--normal-bg\": \"var(--popover)\",\n          \"--normal-text\": \"var(--popover-foreground)\",\n          \"--normal-border\": \"var(--border)\",\n          \"--border-radius\": \"var(--radius)\",\n        } as React.CSSProperties\n      }\n      toastOptions={{\n        classNames: {\n          toast: \"cn-toast\",\n        },\n      }}\n      {...props}\n    />\n  )\n}\n\nexport { Toaster }\n"
+    }
+  ]
+}

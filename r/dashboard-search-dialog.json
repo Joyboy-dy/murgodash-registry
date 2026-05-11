@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-search-dialog",
+  "type": "registry:ui",
+  "title": "Dashboard Search Dialog",
+  "description": "Generated from playground/components/dashboard/search-dialog.tsx.",
+  "files": [
+    {
+      "path": "components/dashboard/search-dialog.tsx",
+      "type": "registry:ui",
+      "target": "components/dashboard/search-dialog.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport {\n  Search01Icon,\n  DocumentCodeIcon,\n  Settings01Icon,\n  UserEdit01Icon,\n  Notification03Icon,\n} from \"@hugeicons/core-free-icons\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\n\nimport {\n  CommandDialog,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n  CommandSeparator,\n  CommandShortcut,\n} from \"@/components/ui/command\"\nimport { useCommandPalette } from \"@/hooks/use-command-palette\"\n\nexport function SearchDialog() {\n  const { isSearchOpen, setIsSearchOpen } = useCommandPalette()\n\n  return (\n    <CommandDialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>\n      <CommandInput placeholder=\"Search everything...\" />\n      <CommandList>\n        <CommandEmpty>No results found.</CommandEmpty>\n        <CommandGroup heading=\"Suggestions\">\n          <CommandItem>\n            <HugeiconsIcon icon={DocumentCodeIcon} size={16} strokeWidth={1.5} className=\"mr-2\" />\n            <span>Documents</span>\n          </CommandItem>\n          <CommandItem>\n            <HugeiconsIcon icon={Notification03Icon} size={16} strokeWidth={1.5} className=\"mr-2\" />\n            <span>Notifications</span>\n          </CommandItem>\n        </CommandGroup>\n        <CommandSeparator />\n        <CommandGroup heading=\"Settings\">\n          <CommandItem>\n            <HugeiconsIcon icon={UserEdit01Icon} size={16} strokeWidth={1.5} className=\"mr-2\" />\n            <span>Profile</span>\n            <CommandShortcut>⌘P</CommandShortcut>\n          </CommandItem>\n          <CommandItem>\n            <HugeiconsIcon icon={Settings01Icon} size={16} strokeWidth={1.5} className=\"mr-2\" />\n            <span>Settings</span>\n            <CommandShortcut>⌘S</CommandShortcut>\n          </CommandItem>\n        </CommandGroup>\n      </CommandList>\n    </CommandDialog>\n  )\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/command.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/hook-use-command-palette.json"
+  ]
+}

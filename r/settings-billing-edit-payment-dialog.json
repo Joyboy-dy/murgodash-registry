@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "settings-billing-edit-payment-dialog",
+  "type": "registry:ui",
+  "title": "Settings Billing Edit Payment Dialog",
+  "description": "Generated from playground/components/settings/billing/edit-payment-dialog.tsx.",
+  "files": [
+    {
+      "path": "components/settings/billing/edit-payment-dialog.tsx",
+      "type": "registry:ui",
+      "target": "components/settings/billing/edit-payment-dialog.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { HugeiconsIcon } from \"@hugeicons/react\";\nimport { PencilEdit01Icon } from \"@hugeicons/core-free-icons\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Dialog,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from \"@/components/ui/dialog\";\nimport { CreditCardForm } from \"@/components/ui/credit-card-form\";\nimport { CreditCardValues, PaymentMethod } from \"@/types/payment\";\nimport { detectCardType } from \"@/hooks/use-card-type\";\n\ninterface EditPaymentDialogProps {\n  method: PaymentMethod;\n  onUpdate: (method: PaymentMethod) => void;\n}\n\nexport function EditPaymentDialog({ method, onUpdate }: EditPaymentDialogProps) {\n  const [open, setOpen] = React.useState(false);\n  \n  // Convert PaymentMethod to CreditCardValues\n  // Note: We only have last4, but we can pre-fill it for UI consistency\n  const [card, setCard] = React.useState<CreditCardValues>({\n    cardholderName: \"USER NAME\", // Placeholder as we don't store it in PaymentMethod\n    cardNumber: `•••• •••• •••• ${method.last4 || \"\"}`,\n    expiryMonth: method.expiryMonth?.toString().padStart(2, \"0\") || \"\",\n    expiryYear: method.expiryYear?.toString().slice(-2) || \"\",\n    cvv: \"\",\n  });\n\n  const isValid =\n    card.cardholderName.trim() &&\n    (card.cardNumber.includes(\"•\") || card.cardNumber.replace(/\\s/g, \"\").length >= 15) &&\n    card.expiryMonth &&\n    parseInt(card.expiryMonth) <= 12 &&\n    card.expiryYear;\n\n  const handleSave = () => {\n    if (!isValid) return;\n    \n    // In a real app, only changed fields would be sent\n    const type = detectCardType(card.cardNumber.includes(\"•\") ? method.type : card.cardNumber);\n    const cleaned = card.cardNumber.replace(/\\s/g, \"\");\n    \n    const updatedMethod: PaymentMethod = {\n      ...method,\n      type: (type === \"unknown\" || type === \"discover\" ? method.type : type) as PaymentMethod[\"type\"],\n      last4: cleaned.includes(\"•\") ? method.last4 : cleaned.slice(-4),\n      expiryMonth: parseInt(card.expiryMonth),\n      expiryYear: parseInt(card.expiryYear.length === 2 ? `20${card.expiryYear}` : card.expiryYear),\n    };\n    \n    onUpdate(updatedMethod);\n    setOpen(false);\n  };\n\n  return (\n    <Dialog open={open} onOpenChange={setOpen}>\n      <DialogTrigger asChild>\n        <Button variant=\"ghost\" size=\"icon\" className=\"size-8\">\n          <HugeiconsIcon icon={PencilEdit01Icon} className=\"size-4\" />\n        </Button>\n      </DialogTrigger>\n      <DialogContent className=\"max-w-lg border-border/50 bg-muted/20 backdrop-blur-xl\">\n        <DialogHeader>\n          <DialogTitle>Edit Payment Method</DialogTitle>\n          <DialogDescription>\n            Update your card information for this payment method.\n          </DialogDescription>\n        </DialogHeader>\n        <CreditCardForm \n          value={card} \n          onChange={setCard} \n          cardType={method.type}\n        />\n        <DialogFooter>\n          <Button variant=\"outline\" onClick={() => setOpen(false)}>\n            Cancel\n          </Button>\n          <Button onClick={handleSave} disabled={!isValid}>\n            Save Changes\n          </Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  );\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/button.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/credit-card-form.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/dialog.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/hook-use-card-type.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/types-payment.json"
+  ]
+}

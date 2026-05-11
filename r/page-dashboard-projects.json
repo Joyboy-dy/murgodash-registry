@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-dashboard-projects",
+  "type": "registry:page",
+  "title": "Page Dashboard Projects",
+  "description": "Generated from playground/app/dashboard/projects/page.tsx.",
+  "files": [
+    {
+      "path": "app/dashboard/projects/page.tsx",
+      "type": "registry:page",
+      "target": "app/dashboard/projects/page.tsx",
+      "content": "\"use client\";\n\nimport { FolderIcon, PlusSignIcon } from \"@hugeicons/core-free-icons\";\nimport { HugeiconsIcon } from \"@hugeicons/react\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/components/ui/empty\";\n\nexport default function ProjectsPage() {\n  return (\n    <div className=\"px-6 py-10 flex h-full items-center justify-center min-h-[500px]\">\n      <div className=\"mx-auto w-full max-w-lg\">\n        <Empty className=\"rounded-xl border bg-muted/20 py-14 shadow-sm\">\n          <EmptyHeader>\n            <EmptyMedia className=\"rounded-2xl bg-muted/50 p-5 text-muted-foreground mb-4\">\n              <HugeiconsIcon icon={FolderIcon} size={32} strokeWidth={1.5} />\n            </EmptyMedia>\n            <EmptyTitle className=\"text-xl font-bold tracking-tight\">\n              No Projects Yet\n            </EmptyTitle>\n            <EmptyDescription className=\"text-base max-w-[300px]\">\n              You haven&apos;t created any projects yet. Get started by creating\n              your first project to track your work.\n            </EmptyDescription>\n          </EmptyHeader>\n          <EmptyContent>\n            <div className=\"flex flex-wrap gap-2 *:mx-auto\">\n              <Button size=\"lg\" className=\"rounded-xl px-8 shadow-sm\">\n                <HugeiconsIcon\n                  icon={PlusSignIcon}\n                  className=\"mr-2\"\n                  size={20}\n                  strokeWidth={2}\n                />\n                Create Project\n              </Button>\n            </div>\n          </EmptyContent>\n        </Empty>\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/button.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/empty.json"
+  ]
+}

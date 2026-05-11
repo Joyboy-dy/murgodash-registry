@@ -9,5 +9,8 @@
       "target": "components/bento/bento-grid.tsx"
     }
   ],
-  "type": "registry:ui"
+  "type": "registry:ui",
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/lib-utils.json"
+  ]
 }

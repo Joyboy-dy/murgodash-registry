@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lib-auth-actions",
+  "type": "registry:lib",
+  "title": "Lib Auth Actions",
+  "description": "Generated from playground/lib/auth-actions.ts.",
+  "files": [
+    {
+      "path": "lib/auth-actions.ts",
+      "type": "registry:lib",
+      "target": "lib/auth-actions.ts",
+      "content": "\"use server\";\n\nexport type ActionResponse = {\n  success: boolean;\n  message: string;\n};\n\n/**\n * Simulates OTP verification logic.\n */\nexport async function verifyOtpAction(otp: string): Promise<ActionResponse> {\n  // Simulate network delay\n  await new Promise((resolve) => setTimeout(resolve, 1000));\n\n  if (otp === \"123456\") {\n    return {\n      success: true,\n      message: \"Verification successful. Redirecting...\",\n    };\n  }\n\n  return {\n    success: false,\n    message: \"Invalid code. Please try again.\",\n  };\n}\n\n/**\n * Simulates resending OTP code.\n */\nexport async function resendOtpAction(email: string): Promise<ActionResponse> {\n  await new Promise((resolve) => setTimeout(resolve, 800));\n  \n  return {\n    success: true,\n    message: \"A new code has been sent to your email.\",\n  };\n}\n"
+    }
+  ]
+}

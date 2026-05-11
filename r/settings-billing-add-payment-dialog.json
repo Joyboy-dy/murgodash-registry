@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "settings-billing-add-payment-dialog",
+  "type": "registry:ui",
+  "title": "Settings Billing Add Payment Dialog",
+  "description": "Generated from playground/components/settings/billing/add-payment-dialog.tsx.",
+  "files": [
+    {
+      "path": "components/settings/billing/add-payment-dialog.tsx",
+      "type": "registry:ui",
+      "target": "components/settings/billing/add-payment-dialog.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { PlusSignIcon } from \"@hugeicons/core-free-icons\";\nimport { HugeiconsIcon } from \"@hugeicons/react\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Dialog,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from \"@/components/ui/dialog\";\nimport { CreditCardForm } from \"@/components/ui/credit-card-form\";\nimport { CreditCardValues, PaymentMethod } from \"@/types/payment\";\nimport { detectCardType } from \"@/hooks/use-card-type\";\n\ninterface AddPaymentDialogProps {\n  onAdd: (method: PaymentMethod) => void;\n  isFirstCard?: boolean;\n}\n\nconst EMPTY_CARD: CreditCardValues = {\n  cardholderName: \"\",\n  cardNumber: \"\",\n  expiryMonth: \"\",\n  expiryYear: \"\",\n  cvv: \"\",\n};\n\nexport function AddPaymentDialog({ onAdd, isFirstCard = false }: AddPaymentDialogProps) {\n  const [open, setOpen] = React.useState(false);\n  const [card, setCard] = React.useState<CreditCardValues>(EMPTY_CARD);\n\n  const isValid =\n    card.cardholderName.trim() &&\n    card.cardNumber.replace(/\\s/g, \"\").length >= 15 &&\n    card.expiryMonth &&\n    parseInt(card.expiryMonth) <= 12 &&\n    card.expiryYear &&\n    card.cvv.length >= 3;\n\n  const handleSave = () => {\n    if (!isValid) return;\n    const type = detectCardType(card.cardNumber);\n    const cleaned = card.cardNumber.replace(/\\s/g, \"\");\n    const newMethod: PaymentMethod = {\n      id: Date.now().toString(),\n      type: (type === \"unknown\" || type === \"discover\" ? \"visa\" : type) as PaymentMethod[\"type\"],\n      last4: cleaned.slice(-4),\n      expiryMonth: parseInt(card.expiryMonth),\n      expiryYear: parseInt(`20${card.expiryYear}`),\n      isDefault: isFirstCard,\n    };\n    onAdd(newMethod);\n    setCard(EMPTY_CARD);\n    setOpen(false);\n  };\n\n  return (\n    <Dialog open={open} onOpenChange={setOpen}>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\" size=\"sm\" className=\"h-8 gap-2\">\n          <HugeiconsIcon icon={PlusSignIcon} size={16} strokeWidth={2} />\n          Add method\n        </Button>\n      </DialogTrigger>\n      <DialogContent className=\"max-w-lg border-border/50 bg-muted/20 backdrop-blur-xl\">\n        <DialogHeader>\n          <DialogTitle>Add Payment Method</DialogTitle>\n          <DialogDescription>\n            Submit your card information to securely add a new payment method.\n          </DialogDescription>\n        </DialogHeader>\n        <CreditCardForm value={card} onChange={setCard} />\n        <DialogFooter>\n          <Button variant=\"outline\" onClick={() => setOpen(false)}>\n            Cancel\n          </Button>\n          <Button onClick={handleSave} disabled={!isValid}>\n            Save Card\n          </Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  );\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/button.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/credit-card-form.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/dialog.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/hook-use-card-type.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/types-payment.json"
+  ]
+}

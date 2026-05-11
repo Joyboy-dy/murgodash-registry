@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "layout-nav-secondary",
+  "type": "registry:ui",
+  "title": "Layout Nav Secondary",
+  "description": "Generated from playground/components/layout/nav-secondary.tsx.",
+  "files": [
+    {
+      "path": "components/layout/nav-secondary.tsx",
+      "type": "registry:ui",
+      "target": "components/layout/nav-secondary.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport Link from \"next/link\"\nimport { usePathname } from \"next/navigation\"\nimport type { IconSvgElement } from \"@hugeicons/react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\n\r\nimport {\r\n  SidebarGroup,\r\n  SidebarGroupContent,\r\n  SidebarMenu,\r\n  SidebarMenuButton,\r\n  SidebarMenuItem,\r\n} from \"@/components/ui/sidebar\"\r\n\r\nexport function NavSecondary({\r\n  items,\n  ...props\n}: {\n  items: {\n    title: string\n    url: string\n    icon: IconSvgElement\n  }[]\n} & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {\n  const pathname = usePathname()\n\n  return (\n    <SidebarGroup {...props}>\n      <SidebarGroupContent>\n        <SidebarMenu>\n          {items.map((item) => (\n            <SidebarMenuItem key={item.title}>\n              <SidebarMenuButton asChild isActive={pathname === item.url}>\n                <Link href={item.url}>\n                  <HugeiconsIcon icon={item.icon} size={20} strokeWidth={1.5} />\n                  <span>{item.title}</span>\n                </Link>\n              </SidebarMenuButton>\n            </SidebarMenuItem>\n          ))}\n        </SidebarMenu>\n      </SidebarGroupContent>\n    </SidebarGroup>\n  )\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/sidebar.json"
+  ]
+}

@@ -11,5 +11,9 @@
       "type": "registry:ui",
       "target": "components/ui/addon-input.tsx"
     }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/input.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/lib-utils.json"
   ]
 }

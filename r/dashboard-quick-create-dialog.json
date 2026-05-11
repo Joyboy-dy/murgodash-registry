@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-quick-create-dialog",
+  "type": "registry:ui",
+  "title": "Dashboard Quick Create Dialog",
+  "description": "Generated from playground/components/dashboard/quick-create-dialog.tsx.",
+  "files": [
+    {
+      "path": "components/dashboard/quick-create-dialog.tsx",
+      "type": "registry:ui",
+      "target": "components/dashboard/quick-create-dialog.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport {\n  AddCircleIcon,\n  FileAddIcon,\n  FolderAddIcon,\n  UserAddIcon,\n  Tag01Icon,\n} from \"@hugeicons/core-free-icons\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\n\nimport {\n  Dialog,\n  DialogBody,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n} from \"@/components/ui/dialog\"\nimport { Button } from \"@/components/ui/button\"\nimport { Input } from \"@/components/ui/input\"\nimport { Label } from \"@/components/ui/label\"\nimport { Textarea } from \"@/components/ui/textarea\"\nimport { useCommandPalette } from \"@/hooks/use-command-palette\"\n\nexport function QuickCreateDialog() {\n  const { isQuickCreateOpen, setIsQuickCreateOpen } = useCommandPalette()\n\n  return (\n    <Dialog open={isQuickCreateOpen} onOpenChange={setIsQuickCreateOpen}>\n      <DialogContent className=\"sm:max-w-md\">\n        <DialogHeader>\n          <DialogTitle className=\"flex items-center gap-2\">\n            <HugeiconsIcon icon={AddCircleIcon} size={20} strokeWidth={1.5} className=\"text-primary\" />\n            Quick Create\n          </DialogTitle>\n          <DialogDescription>\n            Create a new resource quickly. Choose the type below.\n          </DialogDescription>\n        </DialogHeader>\n        <DialogBody className=\"space-y-6 py-6\">\n          <div className=\"grid grid-cols-2 gap-3\">\n            <Button variant=\"outline\" className=\"h-20 flex-col gap-2 rounded-xl border-dashed\">\n              <HugeiconsIcon icon={FileAddIcon} size={24} strokeWidth={1.5} />\n              <span className=\"text-xs\">Document</span>\n            </Button>\n            <Button variant=\"outline\" className=\"h-20 flex-col gap-2 rounded-xl border-dashed\">\n              <HugeiconsIcon icon={FolderAddIcon} size={24} strokeWidth={1.5} />\n              <span className=\"text-xs\">Folder</span>\n            </Button>\n            <Button variant=\"outline\" className=\"h-20 flex-col gap-2 rounded-xl border-dashed\">\n              <HugeiconsIcon icon={UserAddIcon} size={24} strokeWidth={1.5} />\n              <span className=\"text-xs\">Member</span>\n            </Button>\n            <Button variant=\"outline\" className=\"h-20 flex-col gap-2 rounded-xl border-dashed\">\n              <HugeiconsIcon icon={Tag01Icon} size={24} strokeWidth={1.5} />\n              <span className=\"text-xs\">Tag</span>\n            </Button>\n          </div>\n          \n          <div className=\"space-y-4\">\n            <div className=\"grid gap-2\">\n              <Label htmlFor=\"name\">Quick Title</Label>\n              <Input id=\"name\" placeholder=\"Enter title...\" />\n            </div>\n            <div className=\"grid gap-2\">\n              <Label htmlFor=\"description\">Quick Note</Label>\n              <Textarea id=\"description\" placeholder=\"A short description...\" className=\"h-24 resize-none\" />\n            </div>\n          </div>\n        </DialogBody>\n        <DialogFooter>\n          <Button variant=\"outline\" onClick={() => setIsQuickCreateOpen(false)}>\n            Cancel\n          </Button>\n          <Button onClick={() => setIsQuickCreateOpen(false)}>\n            Create Resource\n          </Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/button.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/dialog.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/hook-use-command-palette.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/input.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/label.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/textarea.json"
+  ]
+}

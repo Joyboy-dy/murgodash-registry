@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-settings-layout",
+  "type": "registry:page",
+  "title": "Page Settings Layout",
+  "description": "Generated from playground/app/settings/layout.tsx.",
+  "files": [
+    {
+      "path": "app/settings/layout.tsx",
+      "type": "registry:page",
+      "target": "app/settings/layout.tsx",
+      "content": "import { SettingsLayout } from \"@/components/settings/settings-layout\";\nimport { redirect } from \"next/navigation\";\n\nexport default function Layout({ children }: { children: React.ReactNode }) {\n  return <SettingsLayout>{children}</SettingsLayout>;\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/settings-settings-layout.json"
+  ]
+}

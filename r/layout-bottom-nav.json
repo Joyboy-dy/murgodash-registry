@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "layout-bottom-nav",
+  "type": "registry:ui",
+  "title": "Layout Bottom Nav",
+  "description": "Generated from playground/components/layout/bottom-nav.tsx.",
+  "files": [
+    {
+      "path": "components/layout/bottom-nav.tsx",
+      "type": "registry:ui",
+      "target": "components/layout/bottom-nav.tsx",
+      "content": "\"use client\";\n\nimport Link from \"next/link\";\nimport { usePathname } from \"next/navigation\";\nimport { Menu01Icon } from \"@hugeicons/core-free-icons\";\nimport { HugeiconsIcon } from \"@hugeicons/react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { dashboardNavMain } from \"../dashboard/dashboard-nav-config\";\n\ninterface BottomNavProps {\n  onMoreClick?: () => void;\n}\n\n// Les 4 premières icônes de la navigation principale\nconst navItems = dashboardNavMain.slice(0, 4).map((item) => ({\n  href: item.url,\n  label: item.title,\n  icon: item.icon,\n}));\n\nexport function BottomNav({ onMoreClick }: BottomNavProps) {\n  const pathname = usePathname();\n\n  return (\n    <nav className=\"fixed right-0 bottom-0 left-0 z-50 border-t border-border bg-background md:hidden\">\n      <div className=\"grid grid-cols-5\">\n        {navItems.map((item) => {\n          const isActive = pathname === item.href;\n\n          return (\n            <Link\n              key={item.href}\n              href={item.href}\n              className={cn(\n                \"flex flex-col items-center gap-1 px-2 py-2\",\n                isActive ? \"text-primary\" : \"text-muted-foreground\",\n              )}\n            >\n              <HugeiconsIcon icon={item.icon} size={22} strokeWidth={1.5} />\n              <span className=\"text-[10px] truncate w-full text-center\">\n                {item.label}\n              </span>\n            </Link>\n          );\n        })}\n        <button\n          type=\"button\"\n          onClick={onMoreClick}\n          className=\"flex flex-col items-center gap-1 px-2 py-2 text-muted-foreground\"\n        >\n          <HugeiconsIcon icon={Menu01Icon} size={22} strokeWidth={1.5} />\n          <span className=\"text-[10px]\">More</span>\n        </button>\n      </div>\n    </nav>\n  );\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/lib-utils.json"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "authentication-signup-form",
+  "type": "registry:ui",
+  "title": "Authentication Signup Form",
+  "description": "Generated from playground/components/authentication/signup-form.tsx.",
+  "files": [
+    {
+      "path": "components/authentication/signup-form.tsx",
+      "type": "registry:ui",
+      "target": "components/authentication/signup-form.tsx",
+      "content": "\"use client\";\n\nimport { zodResolver } from \"@hookform/resolvers/zod\";\nimport { Mail01Icon } from \"@hugeicons/core-free-icons\";\nimport { HugeiconsIcon } from \"@hugeicons/react\";\nimport { useForm } from \"react-hook-form\";\nimport { z } from \"zod/v3\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Form,\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from \"@/components/ui/form\";\nimport { Input } from \"@/components/ui/input\";\nimport { PasswordInput } from \"@/components/ui/password-input\";\nimport { EmailInput } from \"@/components/ui/email-input\";\n\nconst formSchema = z.object({\n  email: z.string().email({\n    message: \"Invalid email address.\",\n  }),\n  password: z.string().min(8, {\n    message: \"Password must be at least 8 characters.\",\n  }),\n});\n\nexport const SignUpForm = () => {\n  const form = useForm<z.infer<typeof formSchema>>({\n    resolver: zodResolver(formSchema),\n    defaultValues: {\n      email: \"\",\n      password: \"\",\n    },\n  });\n\n  function onSubmit(values: z.infer<typeof formSchema>) {\n    // Handle form submission\n    console.log(values);\n  }\n\n  return (\n    <Form {...form}>\n      <form onSubmit={form.handleSubmit(onSubmit)}>\n        <div className=\"space-y-6\">\n          <FormField\n            control={form.control}\n            name=\"email\"\n            render={({ field }) => (\n              <FormItem>\n                <FormLabel>Email</FormLabel>\n                <FormControl>\n                  <EmailInput placeholder=\"Enter your email\" {...field} />\n                </FormControl>\n                <FormDescription>\n                  We'll never share your email with anyone else.\n                </FormDescription>\n                <FormMessage />\n              </FormItem>\n            )}\n          />\n\n          <FormField\n            control={form.control}\n            name=\"password\"\n            render={({ field }) => (\n              <FormItem>\n                <FormLabel>Password</FormLabel>\n                <FormControl>\n                  <PasswordInput placeholder=\"Enter your password\" {...field} />\n                </FormControl>\n                <FormMessage />\n              </FormItem>\n            )}\n          />\n        </div>\n        <Button className=\"mt-6 w-full\" size=\"lg\">\n          <HugeiconsIcon\n            icon={Mail01Icon}\n            className=\"mr-2\"\n            size={20}\n            strokeWidth={1.5}\n          />\n          Continue with Email\n        </Button>\n      </form>\n    </Form>\n  );\n};\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/button.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/email-input.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/form.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/input.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/password-input.json"
+  ]
+}

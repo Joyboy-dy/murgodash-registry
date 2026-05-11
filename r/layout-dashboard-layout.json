@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "layout-dashboard-layout",
+  "type": "registry:ui",
+  "title": "Layout Dashboard Layout",
+  "description": "Generated from playground/components/layout/dashboard-layout.tsx.",
+  "files": [
+    {
+      "path": "components/layout/dashboard-layout.tsx",
+      "type": "registry:ui",
+      "target": "components/layout/dashboard-layout.tsx",
+      "content": "﻿\"use client\"\r\n\r\nimport { useState, type CSSProperties, type ReactNode } from \"react\"\r\n\r\nimport { AppSidebar } from \"./app-sidebar\"\r\nimport { SiteHeader } from \"../dashboard/site-header\"\r\nimport { SidebarInset, SidebarProvider } from \"@/components/ui/sidebar\"\r\nimport { TooltipProvider } from \"@/components/ui/tooltip\"\r\n\r\nimport { BottomDrawer } from \"./bottom-drawer\"\r\nimport { BottomNav } from \"./bottom-nav\"\r\n\r\ninterface DashboardLayoutProps {\r\n  children: ReactNode\r\n}\r\n\r\nexport function DashboardLayout({ children }: DashboardLayoutProps) {\r\n  const [isDrawerOpen, setIsDrawerOpen] = useState(false)\r\n\r\n  return (\r\n    <TooltipProvider>\r\n      <SidebarProvider\r\n        style={\r\n          {\r\n            \"--sidebar-width\": \"15rem\",\r\n            \"--header-height\": \"calc(var(--spacing) * 12)\",\r\n          } as CSSProperties\r\n        }\r\n        className=\"h-svh overflow-hidden\"\r\n      >\r\n        <AppSidebar variant=\"sidebar\" />\r\n        <SidebarInset className=\"min-h-svh rounded-none shadow-none\">\r\n          <SiteHeader />\r\n          <main className=\"flex flex-1 flex-col overflow-y-auto overflow-x-hidden pb-20 md:pb-0\">\r\n            {children}\r\n          </main>\r\n        </SidebarInset>\r\n        <BottomNav onMoreClick={() => setIsDrawerOpen(true)} />\r\n        <BottomDrawer\r\n          open={isDrawerOpen}\r\n          onClose={() => setIsDrawerOpen(false)}\r\n        />\r\n      </SidebarProvider>\r\n    </TooltipProvider>\r\n  )\r\n}\r\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/sidebar.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/tooltip.json"
+  ]
+}

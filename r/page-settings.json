@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-settings",
+  "type": "registry:page",
+  "title": "Page Settings",
+  "description": "Generated from playground/app/settings/page.tsx.",
+  "files": [
+    {
+      "path": "app/settings/page.tsx",
+      "type": "registry:page",
+      "target": "app/settings/page.tsx",
+      "content": "import { redirect } from \"next/navigation\";\n\nexport default function SettingsPage() {\n  redirect(\"/settings/profile\");\n}\n"
+    }
+  ]
+}

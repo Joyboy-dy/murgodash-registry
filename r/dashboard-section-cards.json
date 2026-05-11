@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-section-cards",
+  "type": "registry:ui",
+  "title": "Dashboard Section Cards",
+  "description": "Generated from playground/components/dashboard/section-cards.tsx.",
+  "files": [
+    {
+      "path": "components/dashboard/section-cards.tsx",
+      "type": "registry:ui",
+      "target": "components/dashboard/section-cards.tsx",
+      "content": "import { ArrowDown01Icon, ArrowUp01Icon } from \"@hugeicons/core-free-icons\"\nimport type { IconSvgElement } from \"@hugeicons/react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\n\nimport { Badge } from \"@/components/ui/badge\"\nimport {\n  Card,\n  CardAction,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\"\n\ninterface SectionCardData {\n  description: string\n  value: string\n  delta: string\n  summary: string\n  detail: string\n  trend: IconSvgElement\n}\n\ninterface SectionCardsProps {\n  index?: number\n}\n\nconst sectionCards: SectionCardData[] = [\n  {\n    description: \"Total Revenue\",\n    value: \"$1,250.00\",\n    delta: \"+12.5%\",\n    summary: \"Trending up this month\",\n    detail: \"Visitors for the last 6 months\",\n    trend: ArrowUp01Icon,\n  },\n  {\n    description: \"New Customers\",\n    value: \"1,234\",\n    delta: \"-20%\",\n    summary: \"Down 20% this period\",\n    detail: \"Acquisition needs attention\",\n    trend: ArrowDown01Icon,\n  },\n  {\n    description: \"Active Accounts\",\n    value: \"45,678\",\n    delta: \"+12.5%\",\n    summary: \"Strong user retention\",\n    detail: \"Engagement exceed targets\",\n    trend: ArrowUp01Icon,\n  },\n  {\n    description: \"Growth Rate\",\n    value: \"4.5%\",\n    delta: \"+4.5%\",\n    summary: \"Steady performance increase\",\n    detail: \"Meets growth projections\",\n    trend: ArrowUp01Icon,\n  },\n]\n\nfunction SectionCard({ card }: { card: SectionCardData }) {\n  return (\n    <Card className=\"@container/card h-full border-0 py-0 ring-0 shadow-none\">\n      <CardHeader className=\"pt-4\">\n        <CardDescription>{card.description}</CardDescription>\n        <CardTitle className=\"text-xl font-semibold tabular-nums sm:text-2xl @[250px]/card:text-3xl\">\n          {card.value}\n        </CardTitle>\n        <CardAction>\n          <Badge variant=\"outline\">\n            <HugeiconsIcon icon={card.trend} size={20} strokeWidth={1.5} />\n            {card.delta}\n          </Badge>\n        </CardAction>\n      </CardHeader>\n      <CardFooter className=\"mt-auto flex-col items-start gap-1.5 rounded-none border-t bg-muted/40 text-sm\">\n        <div className=\"line-clamp-1 flex gap-2 font-medium\">\n          {card.summary}\n          <HugeiconsIcon icon={card.trend} size={20} strokeWidth={1.5} />\n        </div>\n        <div className=\"text-muted-foreground\">{card.detail}</div>\n      </CardFooter>\n    </Card>\n  )\n}\n\nexport function SectionCards({ index }: SectionCardsProps) {\n  if (typeof index === \"number\") {\n    return <SectionCard card={sectionCards[index]} />\n  }\n\n  return (\n    <div className=\"grid grid-cols-1 gap-4 px-4 lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4\">\n      {sectionCards.map((card) => (\n        <SectionCard key={card.description} card={card} />\n      ))}\n    </div>\n  )\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/badge.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/card.json"
+  ]
+}

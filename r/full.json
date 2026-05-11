@@ -2,10 +2,13 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "full",
   "title": "Murgodash Full",
-  "description": "Full Murgodash template including Dashboard and Settings.",
+  "description": "Full Murgodash template including Dashboard, Settings, Authentication, Onboarding, and payment UI.",
   "registryDependencies": [
     "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/dashboard.json",
-    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/settings.json"
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/settings.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/authentication.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/onboarding.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/credit-card.json"
   ],
   "type": "registry:block"
 }

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "authentication-verify-otp",
+  "type": "registry:ui",
+  "title": "Authentication Verify Otp",
+  "description": "Generated from playground/components/authentication/verify-otp.tsx.",
+  "files": [
+    {
+      "path": "components/authentication/verify-otp.tsx",
+      "type": "registry:ui",
+      "target": "components/authentication/verify-otp.tsx",
+      "content": "import { Shield01Icon } from \"@hugeicons/core-free-icons\";\nimport { HugeiconsIcon } from \"@hugeicons/react\";\nimport { VerifyOTPForm } from \"@/components/authentication/verify-otp-form\";\n\nconst VerifyOTP = () => (\n  <div className=\"flex min-h-screen items-center justify-center py-12\">\n    <div className=\"mx-auto w-full border border-border/70 pb-0 max-sm:border-t-0 sm:max-w-md sm:rounded-xl sm:bg-card sm:p-1 sm:shadow-lg/3\">\n      <div className=\"border border-border/70 bg-muted/60 px-10 py-14 max-sm:border-x-0 sm:rounded-lg sm:shadow-sm/2\">\n        <HugeiconsIcon\n          icon={Shield01Icon}\n          className=\"mx-auto size-8 text-primary\"\n          strokeWidth={1.5}\n        />\n        <h1 className=\"mt-3 text-center font-semibold text-2xl tracking-tight\">\n          Verify your identity\n        </h1>\n        <p className=\"mt-2 text-center text-sm text-muted-foreground\">\n          We&apos;ve sent a 6-digit code to your email.\n        </p>\n\n        <div className=\"mt-10\">\n          <VerifyOTPForm />\n        </div>\n      </div>\n\n      <div className=\"relative py-5\">\n        <div\n          className=\"absolute inset-0 z-0\"\n          style={{\n            backgroundImage: `\n        linear-gradient(45deg, transparent 49%, var(--border) 49%, var(--border) 51%, transparent 51%),\n        linear-gradient(-45deg, transparent 49%, var(--border) 49%, var(--border) 51%, transparent 51%)\n      `,\n            backgroundSize: \"40px 40px\",\n            WebkitMaskImage:\n              \"radial-gradient(ellipse 60% 60% at 50% 50%, #000 10%, transparent 90%)\",\n            maskImage:\n              \"radial-gradient(ellipse 60% 60% at 50% 50%, #000 10%, transparent 90%)\",\n          }}\n        />\n\n        <p className=\"relative isolate text-center text-muted-foreground text-[11px] font-medium uppercase tracking-wider\">\n          Secure Verification\n        </p>\n      </div>\n    </div>\n  </div>\n);\n\nexport default VerifyOTP;\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/authentication-verify-otp-form.json"
+  ]
+}

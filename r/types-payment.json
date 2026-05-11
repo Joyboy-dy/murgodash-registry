@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "types-payment",
+  "type": "registry:file",
+  "title": "Types Payment",
+  "description": "Generated from playground/types/payment.ts.",
+  "files": [
+    {
+      "path": "types/payment.ts",
+      "type": "registry:file",
+      "target": "types/payment.ts",
+      "content": "export type CardType = \"visa\" | \"mastercard\" | \"amex\" | \"discover\" | \"paypal\" | \"unknown\";\n\nexport interface CreditCardValues {\n  cardholderName: string;\n  cardNumber: string;\n  expiryMonth: string;\n  expiryYear: string;\n  cvv: string;\n}\n\nexport interface PaymentMethod {\n  id: string;\n  type: CardType;\n  last4?: string;\n  expiryMonth?: number;\n  expiryYear?: number;\n  email?: string;\n  isDefault: boolean;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-onboarding",
+  "type": "registry:page",
+  "title": "Page Onboarding",
+  "description": "Generated from playground/app/onboarding/page.tsx.",
+  "files": [
+    {
+      "path": "app/onboarding/page.tsx",
+      "type": "registry:page",
+      "target": "app/onboarding/page.tsx",
+      "content": "import { OnboardingWizard } from \"@/components/onboarding/onboarding-wizard\";\n\nexport const metadata = {\n  title: \"Onboarding | Murgo\",\n};\n\nexport default function OnboardingPage() {\n  return <OnboardingWizard />;\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/onboarding-onboarding-wizard.json"
+  ]
+}

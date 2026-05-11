@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "app",
+  "type": "registry:page",
+  "title": "App",
+  "description": "Generated from playground/app/page.tsx.",
+  "files": [
+    {
+      "path": "app/page.tsx",
+      "type": "registry:page",
+      "target": "app/page.tsx",
+      "content": "import Link from \"next/link\";\nimport {\n  ArrowRight01Icon,\n  DashboardCircleIcon,\n} from \"@hugeicons/core-free-icons\";\nimport { HugeiconsIcon } from \"@hugeicons/react\";\nimport { Button } from \"@/components/ui/button\";\n\nexport default function Home() {\n  return (\n    <div className=\"relative isolate flex min-h-svh flex-col items-center justify-center overflow-hidden bg-background\">\n      {/* Background decoration */}\n      <div className=\"absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] dark:bg-[radial-gradient(#ffffff15_1px,transparent_1px)]\" />\n\n      <div className=\"container relative z-10 mx-auto flex flex-col items-center px-4 text-center\">\n        {/* Badge */}\n        <div className=\"mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary backdrop-blur-sm\">\n          <HugeiconsIcon\n            icon={DashboardCircleIcon}\n            size={16}\n            strokeWidth={1.5}\n          />\n          <span>Murgodash Playground</span>\n        </div>\n\n        {/* Hero Title */}\n        <h1 className=\"max-w-3xl font-heading text-4xl font-bold tracking-tight text-foreground sm:text-6xl\">\n          Le template <span className=\"text-primary\">Bento</span> ultime pour\n          vos tableaux de bord.\n        </h1>\n\n        {/* Description */}\n        <p className=\"mt-6 max-w-xl text-lg text-muted-foreground\">\n          Une architecture moderne basée sur Next.js 15, Tailwind v4 et\n          Hugeicons. Prêt à l'emploi, hautement personnalisable et conçu pour la\n          performance.\n        </p>\n\n        {/* CTA */}\n        <div className=\"mt-10 flex items-center justify-center\">\n          <Button\n            asChild\n            size=\"lg\"\n            className=\"h-12 rounded-full px-8 text-base shadow-lg shadow-primary/20\"\n          >\n            <Link href=\"/dashboard\" className=\"flex items-center gap-2\">\n              Aller vers le Dashboard\n              <HugeiconsIcon\n                icon={ArrowRight01Icon}\n                size={18}\n                strokeWidth={1.5}\n              />\n            </Link>\n          </Button>\n        </div>\n\n        {/* Footer info (subtle) */}\n        <div className=\"mt-20 flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-muted-foreground/60\">\n          <div className=\"flex items-center gap-1.5\">\n            <span className=\"h-1.5 w-1.5 rounded-full bg-emerald-500\" />\n            Next.js 15+\n          </div>\n          <div className=\"flex items-center gap-1.5\">\n            <span className=\"h-1.5 w-1.5 rounded-full bg-blue-500\" />\n            Tailwind v4\n          </div>\n          <div className=\"flex items-center gap-1.5\">\n            <span className=\"h-1.5 w-1.5 rounded-full bg-orange-500\" />\n            HugeIcons\n          </div>\n        </div>\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/button.json"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-auth-verify-otp",
+  "type": "registry:page",
+  "title": "Page Auth Verify Otp",
+  "description": "Generated from playground/app/auth/verify-otp/page.tsx.",
+  "files": [
+    {
+      "path": "app/auth/verify-otp/page.tsx",
+      "type": "registry:page",
+      "target": "app/auth/verify-otp/page.tsx",
+      "content": "import VerifyOTP from \"@/components/authentication/verify-otp\";\n\nexport const metadata = {\n  title: \"Verify OTP | Murgo\",\n  description: \"Enter the 6-digit code sent to your email to verify your identity.\",\n};\n\nexport default function VerifyOTPPage() {\n  return <VerifyOTP />;\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/authentication-verify-otp.json"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-auth-signup",
+  "type": "registry:page",
+  "title": "Page Auth Signup",
+  "description": "Generated from playground/app/auth/signup/page.tsx.",
+  "files": [
+    {
+      "path": "app/auth/signup/page.tsx",
+      "type": "registry:page",
+      "target": "app/auth/signup/page.tsx",
+      "content": "import SignUp from \"@/components/authentication/signup\";\n\nexport default function SignUpPage() {\n  return <SignUp />;\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/authentication-signup.json"
+  ]
+}

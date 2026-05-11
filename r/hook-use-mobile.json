@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hook-use-mobile",
+  "type": "registry:hook",
+  "title": "Hook Use Mobile",
+  "description": "Generated from playground/hooks/use-mobile.ts.",
+  "files": [
+    {
+      "path": "hooks/use-mobile.ts",
+      "type": "registry:hook",
+      "target": "hooks/use-mobile.ts",
+      "content": "\"use client\"\n\nimport { useEffect, useState } from \"react\"\n\nexport function useIsMobile(): boolean {\n  const [isMobile, setIsMobile] = useState(false)\n\n  useEffect(() => {\n    const mediaQuery = window.matchMedia(\"(max-width: 767px)\")\n    const updateIsMobile = () => {\n      setIsMobile(mediaQuery.matches)\n    }\n\n    updateIsMobile()\n    mediaQuery.addEventListener(\"change\", updateIsMobile)\n\n    return () => {\n      mediaQuery.removeEventListener(\"change\", updateIsMobile)\n    }\n  }, [])\n\n  return isMobile\n}\n"
+    }
+  ]
+}

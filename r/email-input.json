@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "email-input",
+  "type": "registry:ui",
+  "title": "Email Input",
+  "description": "Generated from playground/components/ui/email-input.tsx.",
+  "files": [
+    {
+      "path": "components/ui/email-input.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/email-input.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { HugeiconsIcon } from \"@hugeicons/react\";\nimport { Mail01Icon } from \"@hugeicons/core-free-icons\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface EmailInputProps extends React.ComponentProps<\"input\"> {}\n\nconst EmailInput = React.forwardRef<HTMLInputElement, EmailInputProps>(\n  ({ className, ...props }, ref) => {\n    return (\n      <div\n        className={cn(\n          \"flex h-8 items-center overflow-hidden rounded-lg border border-input bg-transparent transition-colors focus-within:border-ring dark:bg-input/30\",\n          className,\n        )}\n      >\n        <div className=\"flex items-center justify-center pl-2.5 text-muted-foreground\">\n          <HugeiconsIcon icon={Mail01Icon} size={16} strokeWidth={1.5} />\n        </div>\n\n        <input\n          {...props}\n          ref={ref}\n          type=\"email\"\n          className=\"h-full min-w-0 flex-1 bg-transparent px-2.5 text-sm text-foreground placeholder:text-muted-foreground outline-none\"\n        />\n      </div>\n    );\n  },\n);\nEmailInput.displayName = \"EmailInput\";\n\nexport { EmailInput };\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/lib-utils.json"
+  ]
+}

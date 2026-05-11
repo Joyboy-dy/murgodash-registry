@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "onboarding-onboarding-stepper",
+  "type": "registry:ui",
+  "title": "Onboarding Onboarding Stepper",
+  "description": "Generated from playground/components/onboarding/onboarding-stepper.tsx.",
+  "files": [
+    {
+      "path": "components/onboarding/onboarding-stepper.tsx",
+      "type": "registry:ui",
+      "target": "components/onboarding/onboarding-stepper.tsx",
+      "content": "\"use client\";\n\nimport { Tick01Icon } from \"@hugeicons/core-free-icons\";\nimport { HugeiconsIcon } from \"@hugeicons/react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface StepperProps {\n  steps: { title: string; icon: any }[];\n  currentStep: number;\n}\n\nexport const OnboardingStepper = ({ steps, currentStep }: StepperProps) => {\n  return (\n    <div className=\"flex w-full items-center justify-between px-2\">\n      {steps.map((step, index) => {\n        const isCompleted = index < currentStep;\n        const isActive = index === currentStep;\n\n        return (\n          <div key={step.title} className=\"flex flex-1 items-center last:flex-none\">\n            <div className=\"flex flex-col items-center gap-2\">\n              <div\n                className={cn(\n                  \"relative flex size-10 items-center justify-center rounded-full border-2 transition-all duration-300\",\n                  isCompleted\n                    ? \"border-primary bg-primary text-primary-foreground shadow-[0_0_15px_-3px_rgba(var(--primary),0.5)]\"\n                    : isActive\n                    ? \"border-primary bg-background text-primary animate-pulse\"\n                    : \"border-muted bg-muted/30 text-muted-foreground\"\n                )}\n              >\n                {isCompleted ? (\n                  <HugeiconsIcon icon={Tick01Icon} size={18} strokeWidth={2.5} />\n                ) : (\n                  <HugeiconsIcon icon={step.icon} size={18} strokeWidth={isActive ? 2 : 1.5} />\n                )}\n                \n                {isActive && (\n                   <span className=\"absolute -inset-1 rounded-full border border-primary/30 animate-ping opacity-20\" />\n                )}\n              </div>\n              <span\n                className={cn(\n                  \"text-[10px] font-medium transition-colors sm:text-xs\",\n                  isActive ? \"text-primary\" : \"text-muted-foreground\"\n                )}\n              >\n                {step.title}\n              </span>\n            </div>\n            \n            {index < steps.length - 1 && (\n              <div\n                className={cn(\n                  \"mx-4 h-[2px] flex-1 rounded-full transition-all duration-500\",\n                  isCompleted ? \"bg-primary\" : \"bg-muted/30\"\n                )}\n              />\n            )}\n          </div>\n        );\n      })}\n    </div>\n  );\n};\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/lib-utils.json"
+  ]
+}

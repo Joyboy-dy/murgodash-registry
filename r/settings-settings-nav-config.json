@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "settings-settings-nav-config",
+  "type": "registry:ui",
+  "title": "Settings Settings Nav Config",
+  "description": "Generated from playground/components/settings/settings-nav-config.ts.",
+  "files": [
+    {
+      "path": "components/settings/settings-nav-config.ts",
+      "type": "registry:ui",
+      "target": "components/settings/settings-nav-config.ts",
+      "content": "import {\n  UserAccountIcon,\n  Settings03Icon,\n  Shield01Icon,\n  CreditCardIcon,\n  Configuration01Icon,\n  DashboardSquare01Icon,\n} from \"@hugeicons/core-free-icons\";\nimport type { IconSvgElement } from \"@hugeicons/react\";\n\nexport interface SettingsNavItem {\n  title: string;\n  label: string;\n  url: string;\n  icon: IconSvgElement;\n}\n\nexport const settingsNavMain: SettingsNavItem[] = [\n  {\n    title: \"Profile Management\",\n    label: \"Profile\",\n    url: \"/settings/profile\",\n    icon: UserAccountIcon,\n  },\n  {\n    title: \"Account Settings\",\n    label: \"Account\",\n    url: \"/settings/account\",\n    icon: Configuration01Icon,\n  },\n  {\n    title: \"Security & Privacy\",\n    label: \"Security\",\n    url: \"/settings/security\",\n    icon: Shield01Icon,\n  },\n  {\n    title: \"Billing & Subscriptions\",\n    label: \"Billing\",\n    url: \"/settings/billing\",\n    icon: CreditCardIcon,\n  },\n];\n\nexport const backToDashboard = {\n  title: \"Back to Dashboard\",\n  url: \"/dashboard\",\n  icon: DashboardSquare01Icon,\n};\n"
+    }
+  ]
+}

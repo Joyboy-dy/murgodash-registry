@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "settings-settings-layout",
+  "type": "registry:ui",
+  "title": "Settings Settings Layout",
+  "description": "Generated from playground/components/settings/settings-layout.tsx.",
+  "files": [
+    {
+      "path": "components/settings/settings-layout.tsx",
+      "type": "registry:ui",
+      "target": "components/settings/settings-layout.tsx",
+      "content": "\"use client\";\n\nimport { useState, type CSSProperties, type ReactNode } from \"react\";\n\nimport { SettingsSidebar } from \"./settings-sidebar\";\nimport { SettingsHeader } from \"./settings-header\";\nimport { SettingsBottomNav } from \"./settings-bottom-nav\";\nimport { SettingsBottomDrawer } from \"./settings-bottom-drawer\";\nimport { SidebarInset, SidebarProvider } from \"@/components/ui/sidebar\";\nimport { TooltipProvider } from \"@/components/ui/tooltip\";\n\ninterface SettingsLayoutProps {\n  children: ReactNode;\n}\n\nexport function SettingsLayout({ children }: SettingsLayoutProps) {\n  const [isDrawerOpen, setIsDrawerOpen] = useState(false);\n\n  return (\n    <TooltipProvider>\n      <SidebarProvider\n        style={\n          {\n            \"--sidebar-width\": \"16rem\",\n            \"--header-height\": \"calc(var(--spacing) * 12)\",\n          } as CSSProperties\n        }\n        className=\"h-svh overflow-hidden\"\n      >\n        <SettingsSidebar variant=\"sidebar\" />\n        <SidebarInset className=\"min-h-svh rounded-none shadow-none\">\n          <SettingsHeader />\n          <main className=\"flex flex-1 flex-col overflow-y-auto overflow-x-hidden pb-20 md:pb-0\">\n            {children}\n          </main>\n        </SidebarInset>\n        <SettingsBottomNav onMoreClick={() => setIsDrawerOpen(true)} />\n        <SettingsBottomDrawer\n          open={isDrawerOpen}\n          onClose={() => setIsDrawerOpen(false)}\n        />\n      </SidebarProvider>\n    </TooltipProvider>\n  );\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/sidebar.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/tooltip.json"
+  ]
+}

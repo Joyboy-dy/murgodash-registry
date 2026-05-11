@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-dashboard",
+  "type": "registry:page",
+  "title": "Page Dashboard",
+  "description": "Generated from playground/app/dashboard/page.tsx.",
+  "files": [
+    {
+      "path": "app/dashboard/page.tsx",
+      "type": "registry:page",
+      "target": "app/dashboard/page.tsx",
+      "content": "import { SectionCards } from \"@/components/dashboard/section-cards\";\r\nimport { ChartAreaInteractive } from \"@/components/dashboard/chart-area-interactive\";\r\nimport { DataTable } from \"@/components/dashboard/data-table\";\r\nimport tableData from \"./data.json\";\r\n\r\nexport default function DashboardPage() {\r\n  return (\r\n    <div className=\"flex flex-1 flex-col gap-6 py-4 lg:gap-8 lg:py-6 @container/main\">\r\n      {/* Statistiques principales en haut */}\r\n      <SectionCards />\r\n\r\n      {/* Graphique interactif au milieu */}\r\n      <div className=\"px-4 lg:px-6\">\r\n        <ChartAreaInteractive />\r\n      </div>\r\n\r\n      {/* Tableau de données en bas */}\r\n      <DataTable data={tableData} />\r\n    </div>\r\n  );\r\n}\r\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/dashboard-chart-area-interactive.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/dashboard-data-table.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/dashboard-section-cards.json"
+  ]
+}

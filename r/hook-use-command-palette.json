@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hook-use-command-palette",
+  "type": "registry:hook",
+  "title": "Hook Use Command Palette",
+  "description": "Generated from playground/hooks/use-command-palette.tsx.",
+  "files": [
+    {
+      "path": "hooks/use-command-palette.tsx",
+      "type": "registry:hook",
+      "target": "hooks/use-command-palette.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\ninterface CommandPaletteContextType {\n  isSearchOpen: boolean\n  setIsSearchOpen: (open: boolean) => void\n  isQuickCreateOpen: boolean\n  setIsQuickCreateOpen: (open: boolean) => void\n  toggleSearch: () => void\n  toggleQuickCreate: () => void\n}\n\nconst CommandPaletteContext = React.createContext<CommandPaletteContextType | undefined>(undefined)\n\nexport function CommandPaletteProvider({ children }: { children: React.ReactNode }) {\n  const [isSearchOpen, setIsSearchOpen] = React.useState(false)\n  const [isQuickCreateOpen, setIsQuickCreateOpen] = React.useState(false)\n\n  const toggleSearch = React.useCallback(() => setIsSearchOpen((prev) => !prev), [])\n  const toggleQuickCreate = React.useCallback(() => setIsQuickCreateOpen((prev) => !prev), [])\n\n  React.useEffect(() => {\n    const down = (e: KeyboardEvent) => {\n      if (e.key === \"k\" && (e.metaKey || e.ctrlKey)) {\n        e.preventDefault()\n        toggleSearch()\n      }\n    }\n    document.addEventListener(\"keydown\", down)\n    return () => document.removeEventListener(\"keydown\", down)\n  }, [toggleSearch])\n\n  return (\n    <CommandPaletteContext.Provider\n      value={{\n        isSearchOpen,\n        setIsSearchOpen,\n        isQuickCreateOpen,\n        setIsQuickCreateOpen,\n        toggleSearch,\n        toggleQuickCreate,\n      }}\n    >\n      {children}\n    </CommandPaletteContext.Provider>\n  )\n}\n\nexport function useCommandPalette() {\n  const context = React.useContext(CommandPaletteContext)\n  if (context === undefined) {\n    throw new Error(\"useCommandPalette must be used within a CommandPaletteProvider\")\n  }\n  return context\n}\n"
+    }
+  ]
+}

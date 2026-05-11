@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-dashboard-layout",
+  "type": "registry:page",
+  "title": "Page Dashboard Layout",
+  "description": "Generated from playground/app/dashboard/layout.tsx.",
+  "files": [
+    {
+      "path": "app/dashboard/layout.tsx",
+      "type": "registry:page",
+      "target": "app/dashboard/layout.tsx",
+      "content": "import { DashboardLayout } from \"@/components/layout/dashboard-layout\";\r\n\r\nexport default function Layout({ children }: { children: React.ReactNode }) {\r\n  return <DashboardLayout>{children}</DashboardLayout>;\r\n}\r\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/layout-dashboard-layout.json"
+  ]
+}

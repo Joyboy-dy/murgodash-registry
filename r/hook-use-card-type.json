@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hook-use-card-type",
+  "type": "registry:hook",
+  "title": "Hook Use Card Type",
+  "description": "Generated from playground/hooks/use-card-type.ts.",
+  "files": [
+    {
+      "path": "hooks/use-card-type.ts",
+      "type": "registry:hook",
+      "target": "hooks/use-card-type.ts",
+      "content": "import creditCardType from \"credit-card-type\";\nimport { CardType } from \"@/types/payment\";\n\nexport function detectCardType(cardNumber: string): CardType {\n  const cleaned = cardNumber.replace(/\\s/g, \"\").toLowerCase();\n  if (!cleaned) return \"unknown\";\n  \n  // If it's already one of our types, return it\n  if ([\"visa\", \"mastercard\", \"amex\", \"discover\", \"paypal\"].includes(cleaned)) {\n    return cleaned as CardType;\n  }\n\n  // If it has bullets but ends with a known type from a hacky string\n  // (though it shouldn't happen with the current logic)\n  if (cleaned.includes(\"•\")) return \"unknown\";\n\n  const results = creditCardType(cleaned);\n  if (!results.length) return \"unknown\";\n  \n  const type = results[0].type;\n  \n  const map: Record<string, CardType> = {\n    visa: \"visa\",\n    mastercard: \"mastercard\",\n    \"american-express\": \"amex\",\n    discover: \"discover\",\n  };\n  \n  return map[type] ?? \"unknown\";\n}\n\nexport function formatCardNumber(value: string, type: CardType): string {\n  const cleaned = value.replace(/\\D/g, \"\");\n  if (type === \"amex\") {\n    return [cleaned.slice(0, 4), cleaned.slice(4, 10), cleaned.slice(10, 15)]\n      .filter(Boolean)\n      .join(\" \");\n  }\n  return cleaned.slice(0, 16).replace(/(.{4})/g, \"$1 \").trim();\n}\n\nexport function maskCardNumber(cardNumber: string, type: CardType): string {\n  const cleaned = cardNumber.replace(/\\s/g, \"\");\n  const maxLen = type === \"amex\" ? 15 : 16;\n  const padded = cleaned.padEnd(maxLen, \"•\");\n  if (type === \"amex\") {\n    return `${padded.slice(0, 4)} ${padded.slice(4, 10)} ${padded.slice(10, 15)}`;\n  }\n  return `${padded.slice(0, 4)} ${padded.slice(4, 8)} ${padded.slice(8, 12)} ${padded.slice(12, 16)}`;\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/types-payment.json"
+  ]
+}

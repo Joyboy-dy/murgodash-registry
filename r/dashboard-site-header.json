@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-site-header",
+  "type": "registry:ui",
+  "title": "Dashboard Site Header",
+  "description": "Generated from playground/components/dashboard/site-header.tsx.",
+  "files": [
+    {
+      "path": "components/dashboard/site-header.tsx",
+      "type": "registry:ui",
+      "target": "components/dashboard/site-header.tsx",
+      "content": "import {\r\n  AddCircleIcon,\r\n  Search01Icon,\r\n} from \"@hugeicons/core-free-icons\"\r\nimport { HugeiconsIcon } from \"@hugeicons/react\"\r\n\r\nimport { Button } from \"@/components/ui/button\"\r\nimport { Input } from \"@/components/ui/input\"\r\n\r\nimport { HeaderNotifications } from \"./header-notifications\"\r\nimport { NavUser } from \"../layout/nav-user\"\r\nimport { ThemeToggle } from \"../layout/theme-toggle\"\r\n\r\nimport { useCommandPalette } from \"@/hooks/use-command-palette\"\r\nimport { Kbd } from \"@/components/ui/kbd\"\r\n\r\nconst headerUser = {\r\n  name: \"murgo\",\r\n  email: \"m@example.com\",\r\n  avatar: \"https://api.dicebear.com/9.x/avataaars/svg?seed=murgo\",\r\n}\r\n\r\nexport function SiteHeader() {\r\n  const { toggleSearch, toggleQuickCreate } = useCommandPalette()\r\n\r\n  return (\r\n    <header className=\"sticky top-0 z-20 flex h-(--header-height) shrink-0 items-center gap-2 border-b bg-background/95 backdrop-blur transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height)\">\r\n      <div className=\"flex w-full items-center gap-2 px-3 sm:px-4 lg:px-6\">\r\n        <h1 className=\"text-base font-medium text-foreground\">Documents</h1>\r\n        <div className=\"ml-auto flex items-center gap-2\">\r\n          {/* Global Search Button */}\r\n          <button\r\n            onClick={toggleSearch}\r\n            className=\"group relative hidden h-9 w-56 items-center rounded-lg border border-input bg-transparent px-3 text-sm text-muted-foreground transition-colors hover:bg-accent/50 lg:flex\"\r\n            aria-label=\"Search everything (Ctrl+K)\"\r\n          >\r\n            <HugeiconsIcon\r\n              icon={Search01Icon}\r\n              size={18}\r\n              strokeWidth={1.5}\r\n              className=\"mr-2 text-muted-foreground transition-colors group-hover:text-foreground\"\r\n            />\r\n            <span className=\"flex-1 text-left\">Search docs...</span>\r\n            <Kbd className=\"ml-2 pointer-events-none opacity-60\">\r\n              <span className=\"text-[10px]\">⌘</span>K\r\n            </Kbd>\r\n          </button>\r\n\r\n          <Button\r\n            variant=\"outline\"\r\n            size=\"sm\"\r\n            className=\"size-9 lg:hidden\"\r\n            onClick={toggleSearch}\r\n          >\r\n            <HugeiconsIcon icon={Search01Icon} size={20} strokeWidth={1.5} />\r\n            <span className=\"sr-only\">Search</span>\r\n          </Button>\r\n\r\n          {/* Quick Create Button */}\r\n          <Button\r\n            size=\"sm\"\r\n            className=\"h-9 gap-2 px-3 sm:px-4\"\r\n            onClick={toggleQuickCreate}\r\n          >\r\n            <HugeiconsIcon icon={AddCircleIcon} size={20} strokeWidth={1.5} />\r\n            <span className=\"hidden sm:inline\">Quick Create</span>\r\n          </Button>\r\n\r\n          <HeaderNotifications />\r\n          <ThemeToggle />\r\n          <NavUser user={headerUser} compact />\r\n        </div>\r\n      </div>\r\n    </header>\r\n  )\r\n}\r\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/button.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/hook-use-command-palette.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/input.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/kbd.json"
+  ]
+}

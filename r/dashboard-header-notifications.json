@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-header-notifications",
+  "type": "registry:ui",
+  "title": "Dashboard Header Notifications",
+  "description": "Generated from playground/components/dashboard/header-notifications.tsx.",
+  "files": [
+    {
+      "path": "components/dashboard/header-notifications.tsx",
+      "type": "registry:ui",
+      "target": "components/dashboard/header-notifications.tsx",
+      "content": "\"use client\"\n\nimport {\n  Notification01Icon,\n  NotificationOff01Icon,\n} from \"@hugeicons/core-free-icons\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from \"@/components/ui/dropdown-menu\"\n\nconst notificationItems = [\n  {\n    title: \"New account activity\",\n    detail: \"3 team members signed in today.\",\n  },\n  {\n    title: \"Weekly report ready\",\n    detail: \"Your analytics summary is available.\",\n  },\n  {\n    title: \"Billing reminder\",\n    detail: \"Your next invoice is scheduled this week.\",\n  },\n]\n\nexport function HeaderNotifications() {\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button\n          type=\"button\"\n          variant=\"outline\"\n          size=\"sm\"\n          className=\"relative h-9 w-9\"\n          aria-label=\"Open notifications\"\n        >\n          <HugeiconsIcon\n            icon={Notification01Icon}\n            size={20}\n            strokeWidth={1.5}\n          />\n          <span className=\"absolute top-2.5 right-2.5 h-2 w-2 rounded-full bg-primary\" />\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align=\"end\" className=\"w-80 max-w-[calc(100vw-2rem)]\">\n        <DropdownMenuLabel className=\"px-3 py-2 text-sm font-medium text-foreground\">\n          Notifications\n        </DropdownMenuLabel>\n        <DropdownMenuSeparator />\n        {notificationItems.map((item) => (\n          <DropdownMenuItem\n            key={item.title}\n            className=\"flex flex-col items-start gap-1 px-3 py-2\"\n          >\n            <span className=\"text-sm font-medium text-foreground\">\n              {item.title}\n            </span>\n            <span className=\"text-xs text-muted-foreground\">{item.detail}</span>\n          </DropdownMenuItem>\n        ))}\n        <DropdownMenuSeparator />\n        <DropdownMenuItem className=\"px-3 py-2 text-muted-foreground\">\n          <HugeiconsIcon\n            icon={NotificationOff01Icon}\n            size={20}\n            strokeWidth={1.5}\n          />\n          Mark all as read\n        </DropdownMenuItem>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/button.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/dropdown-menu.json"
+  ]
+}

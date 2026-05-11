@@ -9,12 +9,14 @@
     "sonner"
   ],
   "registryDependencies": [
+    "avatar",
     "button",
     "card",
-    "label",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/lib-utils.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/onboarding-onboarding-wizard.json",
     "input",
+    "label",
     "select",
-    "avatar",
     "tabs"
   ],
   "files": [

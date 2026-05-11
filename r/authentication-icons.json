@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "authentication-icons",
+  "type": "registry:ui",
+  "title": "Authentication Icons",
+  "description": "Generated from playground/components/authentication/icons.tsx.",
+  "files": [
+    {
+      "path": "components/authentication/icons.tsx",
+      "type": "registry:ui",
+      "target": "components/authentication/icons.tsx",
+      "content": "\"use client\";\n\nimport React from \"react\";\nimport { SvglIcon } from \"@/components/ui/svgl-icon\";\n\ninterface GoogleLogoProps extends React.ComponentPropsWithoutRef<\"span\"> {\n  /** Taille de l'icône en pixels */\n  size?: number;\n}\n\n/**\n * Composant GoogleLogo réutilisant SvglIcon pour éviter la redondance.\n * Extrait du fichier d'icônes d'authentification pour utiliser l'API SVGL.\n */\nexport const GoogleLogo = ({ className, size, ...props }: GoogleLogoProps) => {\n  return (\n    <SvglIcon \n      filename=\"google.svg\" \n      size={size} \n      className={className} \n      {...props} \n    />\n  );\n};\n\nexport default GoogleLogo;\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/svgl-icon.json"
+  ]
+}

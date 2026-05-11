@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "settings-settings-header",
+  "type": "registry:ui",
+  "title": "Settings Settings Header",
+  "description": "Generated from playground/components/settings/settings-header.tsx.",
+  "files": [
+    {
+      "path": "components/settings/settings-header.tsx",
+      "type": "registry:ui",
+      "target": "components/settings/settings-header.tsx",
+      "content": "\"use client\";\n\nimport { usePathname } from \"next/navigation\";\nimport { ThemeToggle } from \"../layout/theme-toggle\";\nimport { NavUser } from \"../layout/nav-user\";\nimport { HeaderNotifications } from \"../dashboard/header-notifications\";\nimport { settingsNavMain } from \"./settings-nav-config\";\n\nconst headerUser = {\n  name: \"murgo\",\n  email: \"m@example.com\",\n  avatar: \"https://api.dicebear.com/9.x/avataaars/svg?seed=murgo\",\n};\n\nexport function SettingsHeader() {\n  const pathname = usePathname();\n  \n  // Trouver le titre de la section actuelle\n  const currentSection = settingsNavMain.find(item => item.url === pathname);\n  const title = currentSection?.title || \"Settings\";\n\n  return (\n    <header className=\"sticky top-0 z-20 flex h-(--header-height) shrink-0 items-center gap-2 border-b bg-background/95 backdrop-blur transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height)\">\n      <div className=\"flex w-full items-center gap-2 px-3 sm:px-4 lg:px-6\">\n        <h1 className=\"text-base font-medium text-foreground\">{title}</h1>\n        <div className=\"ml-auto flex items-center gap-2\">\n          <HeaderNotifications />\n          <ThemeToggle />\n          <NavUser user={headerUser} compact />\n        </div>\n      </div>\n    </header>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion",
+  "type": "registry:ui",
+  "title": "Accordion",
+  "description": "Generated from playground/components/ui/accordion.tsx.",
+  "files": [
+    {
+      "path": "components/ui/accordion.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/accordion.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Accordion as AccordionPrimitive } from \"radix-ui\"\nimport { ArrowDown01Icon, ArrowUp01Icon } from \"@hugeicons/core-free-icons\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction Accordion({\n  className,\n  ...props\n}: React.ComponentProps<typeof AccordionPrimitive.Root>) {\n  return (\n    <AccordionPrimitive.Root\n      data-slot=\"accordion\"\n      className={cn(\"flex w-full flex-col\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction AccordionItem({\n  className,\n  ...props\n}: React.ComponentProps<typeof AccordionPrimitive.Item>) {\n  return (\n    <AccordionPrimitive.Item\n      data-slot=\"accordion-item\"\n      className={cn(\"not-last:border-b\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction AccordionTrigger({\n  className,\n  children,\n  ...props\n}: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {\n  return (\n    <AccordionPrimitive.Header className=\"flex\">\n      <AccordionPrimitive.Trigger\n        data-slot=\"accordion-trigger\"\n        className={cn(\n          \"group/accordion-trigger relative flex flex-1 items-start justify-between rounded-lg border border-transparent py-2.5 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:border-ring disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4\",\n          className\n        )}\n        {...props}\n      >\n        {children}\n        <HugeiconsIcon\n          icon={ArrowDown01Icon}\n          size={16}\n          strokeWidth={1.5}\n          data-slot=\"accordion-trigger-icon\"\n          className=\"pointer-events-none shrink-0 text-muted-foreground group-aria-expanded/accordion-trigger:hidden\"\n        />\n        <HugeiconsIcon\n          icon={ArrowUp01Icon}\n          size={16}\n          strokeWidth={1.5}\n          data-slot=\"accordion-trigger-icon\"\n          className=\"pointer-events-none hidden shrink-0 text-muted-foreground group-aria-expanded/accordion-trigger:inline\"\n        />\n      </AccordionPrimitive.Trigger>\n    </AccordionPrimitive.Header>\n  )\n}\n\nfunction AccordionContent({\n  className,\n  children,\n  ...props\n}: React.ComponentProps<typeof AccordionPrimitive.Content>) {\n  return (\n    <AccordionPrimitive.Content\n      data-slot=\"accordion-content\"\n      className=\"overflow-hidden text-sm data-open:animate-accordion-down data-closed:animate-accordion-up\"\n      {...props}\n    >\n      <div\n        className={cn(\n          \"h-(--radix-accordion-content-height) pt-0 pb-2.5 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4\",\n          className\n        )}\n      >\n        {children}\n      </div>\n    </AccordionPrimitive.Content>\n  )\n}\n\nexport { Accordion, AccordionItem, AccordionTrigger, AccordionContent }\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/lib-utils.json"
+  ]
+}

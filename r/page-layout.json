@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-layout",
+  "type": "registry:page",
+  "title": "Page Layout",
+  "description": "Generated from playground/app/layout.tsx.",
+  "files": [
+    {
+      "path": "app/layout.tsx",
+      "type": "registry:page",
+      "target": "app/layout.tsx",
+      "content": "import type { Metadata } from \"next\";\nimport { Geist, Geist_Mono } from \"next/font/google\";\nimport \"./globals.css\";\nimport { ThemeProvider } from \"@/components/theme-provider\";\n\nimport { CommandPaletteProvider } from \"@/hooks/use-command-palette\";\nimport { SearchDialog } from \"@/components/dashboard/search-dialog\";\nimport { QuickCreateDialog } from \"@/components/dashboard/quick-create-dialog\";\n\nconst geistSans = Geist({\n  variable: \"--font-geist-sans\",\n  subsets: [\"latin\"],\n});\n\nconst geistMono = Geist_Mono({\n  variable: \"--font-geist-mono\",\n  subsets: [\"latin\"],\n});\n\nexport const metadata: Metadata = {\n  title: \"Murgodash Playground\",\n  description: \"Ultimate Bento Dashboard Template\",\n};\n\nexport default function RootLayout({\n  children,\n}: Readonly<{\n  children: React.ReactNode;\n}>) {\n  return (\n    <html\n      lang=\"fr\"\n      suppressHydrationWarning\n      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}\n    >\n      <body className=\"min-h-full flex flex-col\">\n        <ThemeProvider\n          attribute=\"class\"\n          defaultTheme=\"system\"\n          enableSystem\n          disableTransitionOnChange\n        >\n          <CommandPaletteProvider>\n            {children}\n            <SearchDialog />\n            <QuickCreateDialog />\n          </CommandPaletteProvider>\n        </ThemeProvider>\n      </body>\n    </html>\n  );\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/dashboard-quick-create-dialog.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/dashboard-search-dialog.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/hook-use-command-palette.json",
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/theme-provider.json"
+  ]
+}

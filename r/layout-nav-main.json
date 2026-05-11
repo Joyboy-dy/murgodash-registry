@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "layout-nav-main",
+  "type": "registry:ui",
+  "title": "Layout Nav Main",
+  "description": "Generated from playground/components/layout/nav-main.tsx.",
+  "files": [
+    {
+      "path": "components/layout/nav-main.tsx",
+      "type": "registry:ui",
+      "target": "components/layout/nav-main.tsx",
+      "content": "\"use client\"\n\nimport Link from \"next/link\"\nimport { usePathname } from \"next/navigation\"\nimport type { IconSvgElement } from \"@hugeicons/react\"\nimport { HugeiconsIcon } from \"@hugeicons/react\"\n\nimport {\n  SidebarGroup,\n  SidebarGroupContent,\n  SidebarGroupLabel,\r\n  SidebarMenu,\r\n  SidebarMenuButton,\r\n  SidebarMenuItem,\r\n} from \"@/components/ui/sidebar\"\r\n\r\nexport function NavMain({\n  items,\n}: {\n  items: {\n    title: string\n    url: string\n    icon?: IconSvgElement\n  }[]\n}) {\n  const pathname = usePathname()\n\n  return (\n    <SidebarGroup>\n      <SidebarGroupContent>\n        <SidebarGroupLabel>Home</SidebarGroupLabel>\n        <SidebarMenu>\n          {items.map((item) => {\n            const isActive = pathname === item.url\n\n            return (\n              <SidebarMenuItem key={item.title}>\n                <SidebarMenuButton\n                  asChild\n                  tooltip={item.title}\n                  isActive={isActive}\n                >\n                  <Link href={item.url}>\n                    {item.icon ? (\n                      <HugeiconsIcon\n                        icon={item.icon}\n                        size={20}\n                        strokeWidth={1.5}\n                      />\n                    ) : null}\n                    <span>{item.title}</span>\n                  </Link>\n                </SidebarMenuButton>\n              </SidebarMenuItem>\n            )\n          })}\n        </SidebarMenu>\n      </SidebarGroupContent>\n    </SidebarGroup>\n  )\n}\n"
+    }
+  ],
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/Joyboy-dy/murgodash-registry/main/r/sidebar.json"
+  ]
+}
